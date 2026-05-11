@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>关于本站 — 技术说明 | AI+X Elite Class</title>
+<style>
+  :root {
+    --bg: #0c0c0e; --surface: #16161a; --card: #1e1e24;
+    --border: #2a2a32; --text: #e4e4ea; --sec: #88889a;
+    --acc: #6c8cff; --acc-soft: rgba(108,140,255,.1);
+    --green: #4ade80; --amber: #fbbf24; --rose: #f472b6;
+    --radius: 8px; --font: 'Inter',-apple-system,system-ui,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:var(--font); line-height:1.7; }
+  
+  .hero {
+    background: linear-gradient(135deg,#0a0a1a,#141428,#0d1117);
+    padding: 56px 24px 40px; text-align: center; border-bottom: 1px solid var(--border);
+  }
+  .hero h1 { font-size:2em; font-weight:700;
+    background: linear-gradient(135deg,#6c8cff,#a78bfa);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom:6px; }
+  .hero p { color:var(--sec); font-size:.9em; }
+  .hero .tag { display:inline-block; font-size:.68em; padding:3px 12px; border-radius:20px;
+    background:var(--acc-soft); color:var(--acc); margin-bottom:10px; letter-spacing:.04em; }
+
+  .container { max-width:720px; margin:0 auto; padding:32px 20px 60px; }
+  
+  .layer { margin-bottom:28px; }
+  .layer h2 { font-size:1.1em; font-weight:600; padding-bottom:8px; border-bottom:2px solid var(--border); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .layer h2 .num { font-size:.65em; background:var(--acc-soft); color:var(--acc); padding:2px 10px; border-radius:14px; }
+  
+  .card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:14px; margin:8px 0; }
+  .card h3 { font-size:.9em; font-weight:600; margin-bottom:4px; color:#d0d0e0; }
+  .card p { font-size:.84em; color:#c8c8d0; margin-bottom:4px; }
+  .card .meta { font-size:.75em; color:var(--sec); }
+  .card .tag { display:inline-block; font-size:.65em; padding:2px 8px; border-radius:10px; background:var(--acc-soft); color:var(--acc); margin-right:4px; }
+
+  .pipeline { margin:12px 0; padding:16px; background:#0a0a10; border:1px solid var(--border); border-radius:var(--radius); text-align:center; font-size:.82em; font-family:'JetBrains Mono',monospace; }
+  .pipeline .step { display:inline-block; padding:4px 10px; border-radius:4px; margin:2px; }
+  .pipeline .step.s1 { background:rgba(108,140,255,.1); color:var(--acc); border:1px solid rgba(108,140,255,.2); }
+  .pipeline .step.s2 { background:rgba(167,139,250,.1); color:#a78bfa; border:1px solid rgba(167,139,250,.2); }
+  .pipeline .step.s3 { background:rgba(251,191,36,.1); color:#fbbf24; border:1px solid rgba(251,191,36,.2); }
+  .pipeline .step.s4 { background:rgba(74,222,128,.1); color:#4ade80; border:1px solid rgba(74,222,128,.2); }
+  .pipeline .step.s5 { background:rgba(244,114,182,.1); color:#f472b6; border:1px solid rgba(244,114,182,.2); }
+  .pipeline .step.s6 { background:rgba(108,140,255,.1); color:var(--acc); border:1px solid rgba(108,140,255,.2); }
+  .pipeline .arrow { color:var(--sec); padding:0 4px; }
+
+  .stats { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:8px; margin:12px 0; }
+  .stat { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:12px; text-align:center; }
+  .stat .val { font-size:1.6em; font-weight:700; color:var(--acc); }
+  .stat .lbl { font-size:.72em; color:var(--sec); margin-top:2px; }
+
+  .back { display:inline-block; margin-bottom:16px; color:var(--acc); text-decoration:none; font-size:.84em; }
+  .back:hover { text-decoration:underline; }
+
+  footer { text-align:center; padding:24px; color:var(--sec); font-size:.74em; border-top:1px solid var(--border); }
+
+  @media (max-width:600px) {
+    .hero h1 { font-size:1.4em; }
+    .stats { grid-template-columns:repeat(2,1fr); }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="tag">技术说明</div>
+  <h1>这个网站是怎么来的</h1>
+  <p>从微信群聊天记录到课程网站，一次对话完成的全链路</p>
+</div>
+
+<div class="container">
+
+<a class="back" href="index.html">← 回到课程首页</a>
+
+<div class="stats">
+  <div class="stat"><div class="val">1,881</div><div class="lbl">原始消息</div></div>
+  <div class="stat"><div class="val">1,140</div><div class="lbl">有效消息</div></div>
+  <div class="stat"><div class="val">8</div><div class="lbl">学习模块</div></div>
+  <div class="stat"><div class="val">~350KB</div><div class="lbl">网站总大小</div></div>
+</div>
+
+<div class="pipeline">
+  <span class="step s1">采集</span><span class="arrow">→</span>
+  <span class="step s2">清洗</span><span class="arrow">→</span>
+  <span class="step s3">分类</span><span class="arrow">→</span>
+  <span class="step s4">结构化</span><span class="arrow">→</span>
+  <span class="step s5">教学化</span><span class="arrow">→</span>
+  <span class="step s6">分发</span>
+</div>
+
+<div class="layer">
+<h2><span class="num">01</span> 采集 — 微信本地数据解密</h2>
+<div class="card">
+  <h3>wx-cli（@jackwener/wx-cli）</h3>
+  <p>微信 macOS 本地数据查询 CLI，Rust 单二进制。通过扫描 WeChat 进程内存提取 SQLCipher 加密密钥，实时解密本地数据库。</p>
+  <div class="meta">流程：codesign（移除 Hardened Runtime）→ sudo wx init → 提取 18 个数据库密钥</div>
+  <div class="meta" style="margin-top:4px;">⚠️ 需要 macOS ad-hoc 签名 + 完全磁盘访问权限</div>
+</div>
+<div class="card">
+  <h3>macOS 代码签名</h3>
+  <p><code>sudo codesign --force --deep --sign - "/Applications/微信.app"</code> — 移除 WeChat 的 Hardened Runtime 保护，使进程内存可被外部工具读取。</p>
+  <div class="meta">注意：重新签名后微信需要重启登录，数据不受影响</div>
+</div>
+</div>
+
+<div class="layer">
+<h2><span class="num">02</span> 清洗 — Python 多重过滤管道</h2>
+<div class="card">
+  <p>原始导出约 1,881 条消息，经过 5 道筛子过滤：</p>
+  <p>1️⃣ 系统消息（入群/撤回/管理员变更）<br>
+  2️⃣ XML 元数据（CDATA、appmsg 等微信内部结构）<br>
+  3️⃣ 纯表情/庆祝回复（[表情][庆祝][烟花]等）<br>
+  4️⃣ 接龙去重（同一份签到链 20+ 人重复，只留第一份）<br>
+  5️⃣ 空泛回复（"好的""收到""谢谢老师"）</p>
+  <div class="meta">最终 1,140 条有效消息，过滤率 ~39%</div>
+</div>
+</div>
+
+<div class="layer">
+<h2><span class="num">03</span> 分类 — KSTAR 数据归类</h2>
+<div class="card">
+  <p>从 1,140 条有效消息中提取出 Richard 佟佳睿（主讲教师）的 289 条教学消息，按主题自动归类：</p>
+  <p>KSTAR/NEOLAF（16条）· 哲学/范畴论（18条）· 挑战说明（129条）· 工具推荐（60条）· 作业反馈（118条）· 通知（15条）</p>
+  <div class="meta">同时从两个微信群（实验班1群 3/27→5/1、Elite Class 4/12→5/10）提取同学提交的 64 份作业链接</div>
+</div>
+</div>
+
+<div class="layer">
+<h2><span class="num">04</span> 结构化 — 知识库 + Hermes Skill</h2>
+<div class="card">
+  <h3>课程知识库（22KB Markdown）</h3>
+  <p>包含完整挑战体系 C1→C10、同学作业索引、补课路线图、Richard 教学精要。作为 Hermes memory 持久化存储。</p>
+</div>
+<div class="card">
+  <h3>kstar-learning-loop（Hermes Skill）</h3>
+  <p>将 KSTAR 循环固化为可执行的 Hermes skill——每次复杂任务后自动执行 Reflection，产出反哺 memory/skill 系统。</p>
+</div>
+<div class="card">
+  <h3>c4a-evaluation（Hermes Skill）</h3>
+  <p>拿来主义/有效反馈/多次迭代 三维评估框架，用于自动评审代码和作品。</p>
+</div>
+</div>
+
+<div class="layer">
+<h2><span class="num">05</span> 教学化 — 深色主题 HTML 课件</h2>
+<div class="card">
+  <p>自制 CSS 设计系统（GitHub Dark 风格），所有模块统一视觉：</p>
+  <p>渐变标题 · 卡片式布局 · 课堂实录引用块 · 彩色 callout（提示/警告/错误/信息） · 练习区（含参考答案折叠） · 检查清单 · 响应式移动端适配</p>
+  <div class="meta">子代理（delegate_task）并行生成模块 02-08，节省 50%+ 时间</div>
+</div>
+</div>
+
+<div class="layer">
+<h2><span class="num">06</span> 分发 — GitHub Pages</h2>
+<div class="card">
+  <p><code>gh repo create + git push + gh api pages</code> — 一行命令创建仓库、推送代码、启用 Pages。</p>
+  <div class="meta">网址：<a style="color:var(--acc)" href="https://zian-anson.github.io/AIX-Elite-Class/" target="_blank">zian-anson.github.io/AIX-Elite-Class/</a></div>
+  <div class="meta" style="margin-top:4px;">⚠️ GitHub 在国内可能被墙，备用方案：Gitee Pages 镜像</div>
+</div>
+</div>
+
+<div class="layer">
+<h2><span class="num">07</span> GFW 突破</h2>
+<div class="card">
+  <p>教学环境位于中国教育网出口，涉及跨境数据传输时：</p>
+  <p>• 代理端口 7897 用于 GitHub API / npm 安装<br>
+  • ghproxy.net 中转 GitHub raw 文件下载<br>
+  • cn.bing.com 替代 Google 搜索（百度验证码太难）<br>
+  • 能本地跑的（wx-cli、Python 脚本）绝不走外网</p>
+</div>
+</div>
+
+<div class="layer" style="margin-top:32px; padding:20px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);">
+  <p style="font-size:.88em; color:var(--sec); text-align:center;">
+    整个管道从数据采集到网站上线，在 Agent（Hermes）的自主操作下完成，人类仅提供决策和监督。<br>
+    这也是 AI+X 课程精神的直接实践——<strong>你思考，AI 执行</strong>。
+  </p>
+</div>
+
+</div>
+
+<footer>
+  <p>AI+X Elite Class · Hermes Agent 构建 · 2026-05-10</p>
+</footer>
+
+</body>
+</html>
