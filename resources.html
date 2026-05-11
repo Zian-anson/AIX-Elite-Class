@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>课程资源索引 | AI+X Elite Class</title>
+<style>
+  :root {
+    --bg: #0c0c0e; --surface: #16161a; --card: #1e1e24;
+    --border: #2a2a32; --text: #e4e4ea; --sec: #88889a;
+    --acc: #6c8cff; --acc-soft: rgba(108,140,255,.1);
+    --green: #4ade80; --amber: #fbbf24;
+    --radius: 8px; --font: 'Inter',-apple-system,system-ui,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:var(--font); line-height:1.6; }
+  
+  .hero { background:linear-gradient(135deg,#0a0a1a,#141428,#0d1117); padding:48px 24px 32px; text-align:center; border-bottom:1px solid var(--border); }
+  .hero h1 { font-size:1.8em; font-weight:700; background:linear-gradient(135deg,#6c8cff,#a78bfa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .hero p { color:var(--sec); font-size:.85em; margin-top:4px; }
+  .hero .tag { display:inline-block; font-size:.65em; padding:3px 10px; border-radius:20px; background:var(--acc-soft); color:var(--acc); margin-bottom:8px; letter-spacing:.04em; }
+
+  .container { max-width:880px; margin:0 auto; padding:24px 20px 60px; }
+  .back { display:inline-block; margin-bottom:12px; color:var(--acc); text-decoration:none; font-size:.82em; }
+  .back:hover { text-decoration:underline; }
+
+  .tabs { display:flex; gap:4px; margin-bottom:16px; flex-wrap:wrap; }
+  .tab { padding:8px 16px; border-radius:6px; border:1px solid var(--border); background:var(--surface); color:var(--sec); cursor:pointer; font-size:.82em; transition:.12s; }
+  .tab:hover { border-color:var(--acc); color:var(--text); }
+  .tab.active { background:var(--acc-soft); border-color:var(--acc); color:var(--acc); font-weight:500; }
+  .tab-pane { display:none; }
+  .tab-pane.active { display:block; }
+
+  .stats { display:flex; gap:12px; margin-bottom:16px; flex-wrap:wrap; }
+  .stat { padding:8px 14px; background:var(--card); border:1px solid var(--border); border-radius:6px; font-size:.8em; }
+  .stat .num { color:var(--acc); font-weight:600; }
+  .stat .lbl { color:var(--sec); }
+
+  table { width:100%; border-collapse:collapse; font-size:.78em; }
+  th { text-align:left; padding:6px 8px; color:var(--sec); font-weight:500; border-bottom:1px solid var(--border); font-size:.72em; text-transform:uppercase; letter-spacing:.03em; position:sticky; top:0; background:var(--bg); }
+  td { padding:5px 8px; border-bottom:1px solid var(--border); color:#c8c8d0; vertical-align:top; }
+  tr:hover td { background:var(--acc-soft); }
+
+  .file-icon { margin-right:4px; }
+  .tag-pdf { color:var(--rose); }
+  .tag-zip { color:var(--amber); }
+  .tag-doc { color:var(--green); }
+  .tag-other { color:var(--sec); }
+  .tag-link { color:var(--acc); }
+
+  .sender { color:var(--acc); font-size:.76em; }
+  .ts { color:var(--sec); font-size:.72em; white-space:nowrap; }
+
+  footer { text-align:center; padding:24px; color:var(--sec); font-size:.72em; border-top:1px solid var(--border); }
+
+  @media (max-width:600px) {
+    table { font-size:.7em; }
+    td, th { padding:4px 6px; }
+    .ts { display:none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="tag">223 个文件 · 118 个链接</div>
+  <h1>课程资源索引</h1>
+  <p>微信群里分享的所有文件、GitHub 仓库和链接</p>
+</div>
+
+<div class="container">
+<a class="back" href="index.html">← 回到课程首页</a>
+
+<div class="tabs">
+  <div class="tab active" data-tab="files">📁 文件索引</div>
+  <div class="tab" data-tab="links">🔗 链接索引</div>
+</div>
+
+<div class="tab-pane active" id="tab-files">
+  <div class="stats">
+    <div class="stat"><span class="num">71</span> <span class="lbl">PDF</span></div>
+    <div class="stat"><span class="num">73</span> <span class="lbl">ZIP</span></div>
+    <div class="stat"><span class="num">38</span> <span class="lbl">Word/PPT/Excel</span></div>
+    <div class="stat"><span class="num">6</span> <span class="lbl">Skill 文件</span></div>
+    <div class="stat"><span class="num">223</span> <span class="lbl">总计</span></div>
+  </div>
+  <table>
+    <thead><tr><th>文件</th><th>发送者</th><th>时间</th></tr></thead>
+    <tbody>
+<tr><td>📄 2601.06030v1.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-21 00:22</td></tr>
+<tr><td>📦 3个通用SKILL.zip</td><td class="sender">安</td><td class="ts">2026-04-11 23:16</td></tr>
+<tr><td>📦 AI--main (1).zip</td><td class="sender">让我来漏一手</td><td class="ts">2026-04-06 17:52</td></tr>
+<tr><td>📦 AIX_Chapter.zip</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-22 03:23</td></tr>
+<tr><td>📄 AI_X_member_autonomy_position_signup_form-named.pdf</td><td class="sender">肖福军Fujun Xiao</td><td class="ts">2026-05-06 09:42</td></tr>
+<tr><td>📄 AI_X_member_autonomy_system_revised.pdf</td><td class="sender">德泰🇨🇳</td><td class="ts">2026-04-28 17:11</td></tr>
+<tr><td>📽️ AI_X_核心理念与教育范式.pptx</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-23 18:55</td></tr>
+<tr><td>📝 AI工具使用与翻译方案构建说明.docx</td><td class="sender">幸福科技小陈</td><td class="ts">2026-04-04 15:50</td></tr>
+<tr><td>📝 AI心理赋能项目书.docx</td><td class="sender">Re.</td><td class="ts">2026-04-10 12:57</td></tr>
+<tr><td>📦 AI翻译CS146S_offline.zip</td><td class="sender">冯静雯</td><td class="ts">2026-04-04 16:21</td></tr>
+<tr><td>📝 AI翻译分享.docx</td><td class="sender">冯静雯</td><td class="ts">2026-04-04 16:21</td></tr>
+<tr><td>📦 AI翻译版CS146S_offline.zip</td><td class="sender">晨曦</td><td class="ts">2026-04-03 16:03</td></tr>
+<tr><td>📎 AI认知杠杆.html</td><td class="sender">μ</td><td class="ts">2026-04-07 22:33</td></tr>
+<tr><td>📄 AST.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-07 16:28</td></tr>
+<tr><td>📝 Android Termux 本地部署 Ollama + Gemma 7B 全流程总结.doc</td><td class="sender">安</td><td class="ts">2026-04-07 21:19</td></tr>
+<tr><td>📄 Beyond Language Modeling: An Exploration of Multimodal Pretr</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-09 10:25</td></tr>
+<tr><td>📄 C10.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-04 23:24</td></tr>
+<tr><td>📄 C10H 群消息.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-09 01:03</td></tr>
+<tr><td>📄 C10H.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-09 01:05</td></tr>
+<tr><td>📄 C2A-C9-V2.md</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-05 22:28</td></tr>
+<tr><td>📄 C2A-C9-v2.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-06 00:04</td></tr>
+<tr><td>📄 C2A-guide.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-05 22:49</td></tr>
+<tr><td>📦 C2A-test-and-skill-demo.zip</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-05 22:29</td></tr>
+<tr><td>📄 C2A_群消息.md</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-05 22:29</td></tr>
+<tr><td>📝 C2S Challenge CN.docx</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-21 00:53</td></tr>
+<tr><td>📝 C2S Challenge EN.docx</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-21 00:53</td></tr>
+<tr><td>📄 C2S-牛子超-学员.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-23 13:06</td></tr>
+<tr><td>📄 C2S-赵梦韩-学员-2025106320511.pdf</td><td class="sender">🐋</td><td class="ts">2026-04-24 18:28</td></tr>
+<tr><td>📄 C2S_冯静雯_学员.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-22 01:29</td></tr>
+<tr><td>📦 C2S_李妍_教师.zip</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-23 12:41</td></tr>
+<tr><td>📄 C2S_牛保康_学员.pdf</td><td class="sender">安</td><td class="ts">2026-04-23 21:58</td></tr>
+<tr><td>📦 C2S_申淑博_学员.zip</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-22 23:56</td></tr>
+<tr><td>📝 C2S_肖福军_教师-产物①.docx</td><td class="sender">德泰🇨🇳</td><td class="ts">2026-04-24 22:50</td></tr>
+<tr><td>📝 C2S_肖福军_教师-产物②.docx</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-24 23:40</td></tr>
+<tr><td>📄 C2S_邵逸飞_学员.pdf</td><td class="sender">飞</td><td class="ts">2026-04-24 22:01</td></tr>
+<tr><td>📄 C2S_郑凯同_学员.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-25 00:10</td></tr>
+<tr><td>📄 C2S翻译.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-23 13:07</td></tr>
+<tr><td>📄 C3C 群消息.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-06 21:23</td></tr>
+<tr><td>📄 C3C.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-06 21:22</td></tr>
+<tr><td>📄 C4.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-04 22:18</td></tr>
+<tr><td>📄 C4A.md</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-06 00:35</td></tr>
+<tr><td>📄 C4A_群消息.md</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-06 00:35</td></tr>
+<tr><td>📄 C4B.md</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-06 00:58</td></tr>
+<tr><td>📄 C4B_群消息.md</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-06 00:58</td></tr>
+<tr><td>📄 C4C 群消息.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-06 16:01</td></tr>
+<tr><td>📄 C4C.md</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-06 15:28</td></tr>
+<tr><td>📄 C4C.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-06 15:50</td></tr>
+<tr><td>📄 C4D 群消息.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-06 20:29</td></tr>
+<tr><td>📄 C4D 补充说明.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-06 20:45</td></tr>
+<tr><td>📄 C4D.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-06 20:30</td></tr>
+<tr><td>📦 C4_skill.zip</td><td class="sender">让我来漏一手</td><td class="ts">2026-04-06 18:42</td></tr>
+<tr><td>📄 C5.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-04 22:29</td></tr>
+<tr><td>📄 C5A 群消息.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-06 21:06</td></tr>
+<tr><td>📄 C5A.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-06 21:05</td></tr>
+<tr><td>📄 C5挑战背书请求-G1.pdf</td><td class="sender">23信管张浩 张浩 信管</td><td class="ts">2026-05-04 14:17</td></tr>
+<tr><td>📄 C6.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-04 22:34</td></tr>
+<tr><td>📄 C6A 群消息.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-06 21:13</td></tr>
+<tr><td>📄 C6A.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-06 21:12</td></tr>
+<tr><td>📄 C7.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-04 22:40</td></tr>
+<tr><td>📄 C8.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-04 22:58</td></tr>
+<tr><td>📄 C9.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-04 23:16</td></tr>
+<tr><td>📦 CS146S_offline.zip</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-03 13:29</td></tr>
+<tr><td>📦 CS146S_offline.翻译.zip</td><td class="sender">七</td><td class="ts">2026-04-03 16:31</td></tr>
+<tr><td>📦 CS146S_offline_zh-CN.zip</td><td class="sender">Allen ᯤ⁶ᴳ</td><td class="ts">2026-04-03 23:17</td></tr>
+<tr><td>📦 ChenWankang_C4D.zip</td><td class="sender">幸福科技小陈</td><td class="ts">2026-04-07 20:47</td></tr>
+<tr><td>📄 Elite20 C2 早期成果速报.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-07 23:03</td></tr>
+<tr><td>📄 Elite20 Challenge Index.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-09 00:47</td></tr>
+<tr><td>📄 Elite20 挑战体系与 AI+X 教育范式学习指南.md</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-29 12:32</td></tr>
+<tr><td>📄 Elite20 挑战体系说明 最终执行版.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-04 23:41</td></tr>
+<tr><td>📄 Elite20 挑战清单.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-06 21:27</td></tr>
+<tr><td>📄 Elite20_挑战提交总则_v1.3.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-24 06:58</td></tr>
+<tr><td>📄 Elite_20_Vibe_Coding_Playbook.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-03 13:24</td></tr>
+<tr><td>📦 FengJingwen_C1_CS146S_offline中文.zip</td><td class="sender">冯静雯</td><td class="ts">2026-04-09 12:26</td></tr>
+<tr><td>📦 FengJingwen_C1_CS146S_offline原文.zip</td><td class="sender">冯静雯</td><td class="ts">2026-04-09 12:26</td></tr>
+<tr><td>📄 FengJingwen_C1_翻译方法说明与AI生成日志.md</td><td class="sender">冯静雯</td><td class="ts">2026-04-09 12:26</td></tr>
+<tr><td>📦 FengJingwen_C3.zip</td><td class="sender">冯静雯</td><td class="ts">2026-04-06 17:50</td></tr>
+<tr><td>📄 HOMEWORK_SUBMISSION_Elite20.md</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-05-05 23:59</td></tr>
+<tr><td>📄 Lectures on AI for Mathematics.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-14 18:50</td></tr>
+<tr><td>📎 LiHua_C2A_提案包.rar</td><td class="sender">德泰🇨🇳</td><td class="ts">2026-04-05 23:22</td></tr>
+<tr><td>📦 Niubaokang-C10H.zip</td><td class="sender">安</td><td class="ts">2026-04-09 13:21</td></tr>
+<tr><td>📄 Niubaokang-C10H_最后正确的实操步骤-方便实操复刻.md</td><td class="sender">安</td><td class="ts">2026-04-10 14:31</td></tr>
+<tr><td>📦 Niubaokang_C4_windows-ipv6-fix.zip</td><td class="sender">安</td><td class="ts">2026-04-06 23:31</td></tr>
+<tr><td>📄 SKILL.md</td><td class="sender">安</td><td class="ts">2026-04-11 00:11</td></tr>
+<tr><td>📦 ShiYuxuan_C1.zip</td><td class="sender">μ</td><td class="ts">2026-04-06 18:32</td></tr>
+<tr><td>📝 ShiYuxuan_C1实操版.docx</td><td class="sender">μ</td><td class="ts">2026-04-06 14:00</td></tr>
+<tr><td>📝 ShiYuxuan_C1探索之旅.docx</td><td class="sender">μ</td><td class="ts">2026-04-06 14:00</td></tr>
+<tr><td>📦 ShiYuxuan_C2A_C9.zip</td><td class="sender">μ</td><td class="ts">2026-04-11 20:02</td></tr>
+<tr><td>📦 ShiYuxuan_C2A_C9_一些小测试.zip</td><td class="sender">μ</td><td class="ts">2026-04-11 20:04</td></tr>
+<tr><td>📦 ShiYuxuan_C2Latex.zip</td><td class="sender">μ</td><td class="ts">2026-04-07 16:18</td></tr>
+<tr><td>📦 ShiYuxuan_C2_Latex (1).zip</td><td class="sender">μ</td><td class="ts">2026-04-08 21:22</td></tr>
+<tr><td>📦 ShiYuxuan_C4B_skill升级（wechat-publisher.skill）.zip</td><td class="sender">μ</td><td class="ts">2026-04-09 21:42</td></tr>
+<tr><td>📦 ShiYuxuan_C4D_Gemma4.zip</td><td class="sender">μ</td><td class="ts">2026-04-07 18:51</td></tr>
+<tr><td>📝 Skill行为控制模式深度研究报告：从哪里找、从哪个上手、怎样算用熟.docx</td><td class="sender">冯静雯</td><td class="ts">2026-04-06 17:10</td></tr>
+<tr><td>📄 Skill行为控制模式深度研究报告：从哪里找、从哪个上手、怎样算用熟.md</td><td class="sender">冯静雯</td><td class="ts">2026-04-06 17:10</td></tr>
+<tr><td>📄 Ultimate_Report_DiffSynth_Studio.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-26 02:08</td></tr>
+<tr><td>📝 Week01-02_Outline.docx</td><td class="sender">肖福军Fujun Xiao</td><td class="ts">2026-04-22 12:34</td></tr>
+<tr><td>📦 YinZhenyu_C4A_提交包.zip</td><td class="sender">尹镇宇 大数据开发 大二 尹镇宇</td><td class="ts">2026-04-06 19:10</td></tr>
+<tr><td>📦 YinZhenyu_C4D_.zip</td><td class="sender">尹镇宇 大数据开发 大二 尹镇宇</td><td class="ts">2026-04-07 14:04</td></tr>
+<tr><td>📦 YinZhenyu_C4D_Final_Fixed.zip</td><td class="sender">尹镇宇 大数据开发 大二 尹镇宇</td><td class="ts">2026-04-07 17:17</td></tr>
+<tr><td>📦 YinZhenyu_C5A_Submission.zip</td><td class="sender">尹镇宇 大数据开发 大二 尹镇宇</td><td class="ts">2026-04-06 21:41</td></tr>
+<tr><td>📦 ZengYiman_C1_CS146S_offline.zip</td><td class="sender">曾怡嫚</td><td class="ts">2026-04-07 20:21</td></tr>
+<tr><td>📄 ZengYiman_C1_翻译方法_含AI日志.md</td><td class="sender">曾怡嫚</td><td class="ts">2026-04-07 20:21</td></tr>
+<tr><td>📦 ZhangHao_C2A_提案包.zip</td><td class="sender">23信管张浩 张浩 信管</td><td class="ts">2026-04-05 23:10</td></tr>
+<tr><td>📦 ZhangHao_C2_submission.zip</td><td class="sender">23信管张浩 张浩 信管</td><td class="ts">2026-04-05 08:11</td></tr>
+<tr><td>📎 ZhangHao_C2_wechat_article(3).html</td><td class="sender">23信管张浩 张浩 信管</td><td class="ts">2026-04-08 00:45</td></tr>
+<tr><td>📦 ZhangYibo_C1.zip</td><td class="sender">小姜博.</td><td class="ts">2026-04-06 20:53</td></tr>
+<tr><td>📦 ZhaoGongzuo_C1.zip</td><td class="sender">Joe 趙</td><td class="ts">2026-04-07 10:54</td></tr>
+<tr><td>📄 Zhuruoyi_C4_AI⽇志.md</td><td class="sender">hehej</td><td class="ts">2026-04-06 14:28</td></tr>
+<tr><td>🔧 Zhuruoyi_C4_github-repo-init.skill</td><td class="sender">hehej</td><td class="ts">2026-04-06 14:28</td></tr>
+<tr><td>📄 Zhuruoyi_C4_skill说明.md</td><td class="sender">hehej</td><td class="ts">2026-04-06 14:28</td></tr>
+<tr><td>📄 Zhuruoyi_C4_教学说明.md</td><td class="sender">hehej</td><td class="ts">2026-04-06 14:28</td></tr>
+<tr><td>📦 Zian_C2A.zip</td><td class="sender">安</td><td class="ts">2026-04-05 23:11</td></tr>
+<tr><td>📦 ai翻译..zip</td><td class="sender">Joe 趙</td><td class="ts">2026-04-03 15:52</td></tr>
+<tr><td>📦 ai翻译.zip</td><td class="sender">Joe 趙</td><td class="ts">2026-04-03 14:38</td></tr>
+<tr><td>📄 article.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-21 00:53</td></tr>
+<tr><td>📦 c4a-skill-evaluator-starter.zip</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-06 00:35</td></tr>
+<tr><td>📦 c4b-wechat-publisher-starter.zip</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-06 00:58</td></tr>
+<tr><td>📦 c4c-homework-solver-starter-public-v4.1.zip</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-06 15:27</td></tr>
+<tr><td>📦 c4作业提交 _v2.zip</td><td class="sender">hehej</td><td class="ts">2026-04-06 18:01</td></tr>
+<tr><td>📦 c5-ag2-hackathon-starter.zip</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-05-05 10:21</td></tr>
+<tr><td>📝 chapter.docx</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-21 00:53</td></tr>
+<tr><td>📄 deepmind-agi-cognitive-framework-summary.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-05 19:28</td></tr>
+<tr><td>📝 elite20 collaboration requirements.docx</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-13 20:59</td></tr>
+<tr><td>📝 elite20 formal phase.docx</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-13 20:08</td></tr>
+<tr><td>📄 elite20 submission guide.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-04 21:59</td></tr>
+<tr><td>📦 how-openai-uses-codex(1).zip</td><td class="sender">🐋</td><td class="ts">2026-04-03 15:34</td></tr>
+<tr><td>📄 kstar learning article.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-11 23:48</td></tr>
+<tr><td>📦 liutingting_C4.zip</td><td class="sender">Blue</td><td class="ts">2026-04-10 16:49</td></tr>
+<tr><td>📄 main.pdf</td><td class="sender">23信管张浩 张浩 信管</td><td class="ts">2026-04-05 00:38</td></tr>
+<tr><td>📎 main.tex</td><td class="sender">23信管张浩 张浩 信管</td><td class="ts">2026-04-05 00:38</td></tr>
+<tr><td>🔧 openclaw-dashboard-fix.skill</td><td class="sender">安</td><td class="ts">2026-04-03 21:21</td></tr>
+<tr><td>📦 parameter-golf-main.zip</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-12 10:34</td></tr>
+<tr><td>📎 poc_verifier.py</td><td class="sender">23信管张浩 张浩 信管</td><td class="ts">2026-04-05 00:38</td></tr>
+<tr><td>📎 references.bib</td><td class="sender">23信管张浩 张浩 信管</td><td class="ts">2026-04-05 00:38</td></tr>
+<tr><td>🔧 skill-explainer.skill</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-04 22:20</td></tr>
+<tr><td>🔧 wechat-doc-mapper.skill</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-04 22:19</td></tr>
+<tr><td>📦 wu.j.y - 副本.zip</td><td class="sender">让我来漏一手</td><td class="ts">2026-04-09 18:50</td></tr>
+<tr><td>📎 zengyiman_C2_AI日志.txt</td><td class="sender">曾怡嫚</td><td class="ts">2026-04-07 20:22</td></tr>
+<tr><td>📄 zengyiman_C2_paper.pdf</td><td class="sender">曾怡嫚</td><td class="ts">2026-04-07 20:22</td></tr>
+<tr><td>📎 zengyiman_C2_paper.tex</td><td class="sender">曾怡嫚</td><td class="ts">2026-04-07 20:22</td></tr>
+<tr><td>📄 zengyiman_C2_paper_final.pdf</td><td class="sender">曾怡嫚</td><td class="ts">2026-04-09 01:59</td></tr>
+<tr><td>📦 zengyiman_C4B.zip</td><td class="sender">曾怡嫚</td><td class="ts">2026-04-09 02:00</td></tr>
+<tr><td>📄 中文论文大纲（AI4Math）.md</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-04 00:19</td></tr>
+<tr><td>📄 中文论文大纲（AI4Math）.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-04 00:19</td></tr>
+<tr><td>📝 作业操作流程.docx</td><td class="sender">Allen ᯤ⁶ᴳ</td><td class="ts">2026-04-03 23:17</td></tr>
+<tr><td>📝 作业流程分享.docx</td><td class="sender">小狗有什么心思</td><td class="ts">2026-04-03 19:42</td></tr>
+<tr><td>📄 关于举办第三届“教育数字人大赛”的通知（第二轮）.pdf</td><td class="sender">肖福军Fujun Xiao</td><td class="ts">2026-04-29 14:53</td></tr>
+<tr><td>📦 冯静雯_C1_CS146S_offline.zip</td><td class="sender">冯静雯</td><td class="ts">2026-04-09 12:24</td></tr>
+<tr><td>📎 创建飞书机器人.ppt</td><td class="sender">安</td><td class="ts">2026-04-10 22:11</td></tr>
+<tr><td>📊 国际互联网加速服务学术网站统计-0413.xls</td><td class="sender">肖福军Fujun Xiao</td><td class="ts">2026-04-29 08:08</td></tr>
+<tr><td>📦 张浩_C8_提交.zip</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-13 02:16</td></tr>
+<tr><td>📄 我看见的世界  李飞飞自传 = The Worlds I See Curiosity, Exploration, and</td><td class="sender">计算机张迪</td><td class="ts">2026-05-09 22:08</td></tr>
+<tr><td>📄 拿来主义原则.pdf</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-04 22:25</td></tr>
+<tr><td>📄 新质驱动·组织向新—2026人力资源管理趋势报告.pdf</td><td class="sender">肖福军Fujun Xiao</td><td class="ts">2026-05-01 11:18</td></tr>
+<tr><td>📝 最后正确的实操步骤-方便实操复刻.docx</td><td class="sender">安</td><td class="ts">2026-04-09 13:22</td></tr>
+<tr><td>📄 权限配置代码.md</td><td class="sender">安</td><td class="ts">2026-04-10 22:32</td></tr>
+<tr><td>📄 李华-C2S-2 Elite 20计划改进建议：产业级人机协同实战模块（最低成本更新版）.md</td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-21 00:40</td></tr>
+<tr><td>📎 李华_C4B.rar</td><td class="sender">德泰🇨🇳</td><td class="ts">2026-04-06 10:33</td></tr>
+<tr><td>📦 李华_C4B.zip</td><td class="sender">德泰🇨🇳</td><td class="ts">2026-04-06 10:37</td></tr>
+<tr><td>📦 申淑博 C4A book-whisperer.zip</td><td class="sender">Re.</td><td class="ts">2026-04-06 17:10</td></tr>
+<tr><td>📦 翻译后CS146S_offline (2).zip</td><td class="sender">小狗有什么心思</td><td class="ts">2026-04-03 19:42</td></tr>
+<tr><td>📦 课程翻译.zip</td><td class="sender">小狗有什么心思</td><td class="ts">2026-04-03 16:19</td></tr>
+<tr><td>📦 赵孟焓C4C_方案设计-b4405e4362 (4).zip</td><td class="sender">小狗有什么心思</td><td class="ts">2026-04-06 17:28</td></tr>
+<tr><td>📦 陈万康_C4C_提交材料.zip</td><td class="sender">幸福科技小陈</td><td class="ts">2026-04-06 22:47</td></tr>
+<tr><td>📦 陈万康和孙正浩C3C双人协作与技能迁移.zip</td><td class="sender">幸福科技小陈</td><td class="ts">2026-04-07 19:37</td></tr>
+<tr><td>📝 龙虾后台127.0.0.1无法访问.docx</td><td class="sender">安</td><td class="ts">2026-04-03 20:32</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="tab-pane" id="tab-links">
+  <div class="stats">
+    <div class="stat"><span class="num">89</span> <span class="lbl">GitHub 仓库</span></div>
+    <div class="stat"><span class="num">29</span> <span class="lbl">其他链接</span></div>
+    <div class="stat"><span class="num">118</span> <span class="lbl">总计</span></div>
+  </div>
+  <table>
+    <thead><tr><th>链接</th><th>发送者</th><th>时间</th></tr></thead>
+    <tbody>
+<tr><td><a href="https://github.com/davila7/claude-code-templates" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/davila7/claude-code-templates</a></td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-05 01:01</td></tr>
+<tr><td><a href="https://github.com/wujy309-jpg/AI-.git" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/wujy309-jpg/AI-.git</a></td><td class="sender">让我来漏一手</td><td class="ts">2026-04-06 17:52</td></tr>
+<tr><td><a href="https://github.com/Usernames686" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/Usernames686</a></td><td class="sender">幸福科技小陈</td><td class="ts">2026-04-10 14:48</td></tr>
+<tr><td><a href="https://github.com/alchaincyf/zhangxuefeng-skill" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/alchaincyf/zhangxuefeng-skill</a></td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-12 12:11</td></tr>
+<tr><td><a href="https://github.com/router-for-me/CLIProxyAPI" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/router-for-me/CLIProxyAPI</a></td><td class="sender">幸福科技小陈</td><td class="ts">2026-04-12 12:13</td></tr>
+<tr><td><a href="https://github.com/router-for-me/CLIProx..." target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/router-for-me/CLIProx...</a></td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-12 12:16</td></tr>
+<tr><td><a href="https://github.com/safishamsi/graphify" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/safishamsi/graphify</a></td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-13 02:31</td></tr>
+<tr><td><a href="https://github.com/neolaf2/wechat-cli" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/neolaf2/wechat-cli</a></td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-13 02:32</td></tr>
+<tr><td><a href="https://github.com/neolaf2/web-learning-github" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/neolaf2/web-learning-github</a></td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-13 02:33</td></tr>
+<tr><td><a href="https://github.com/neolaf2/web-learning-..." target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/neolaf2/web-learning-...</a></td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-04-13 02:34</td></tr>
+<tr><td><a href="https://github.com/a976xw7td/wechat-class-manager" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/a976xw7td/wechat-class-manager</a></td><td class="sender">23信管张浩 张浩 信管</td><td class="ts">2026-04-13 09:09</td></tr>
+<tr><td><a href="https://github.com/hicccc77/WeFlow/releases" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/hicccc77/WeFlow/releases</a></td><td class="sender">尹镇宇 大数据开发 大二 尹镇宇</td><td class="ts">2026-04-13 16:50</td></tr>
+<tr><td><a href="https://github.com/LifeArchiveProject/WeChatDataAnalysis/releases/latest" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/LifeArchiveProject/WeChatDataAnalysis/releases/late</a></td><td class="sender">让我来漏一手</td><td class="ts">2026-04-14 12:33</td></tr>
+<tr><td><a href="https://github.com/cx677/latex-editor-skill" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/cx677/latex-editor-skill</a></td><td class="sender">冯静雯</td><td class="ts">2026-04-17 03:21</td></tr>
+<tr><td><a href="https://github.com/a976xw7td/MCP-Toolkit" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/a976xw7td/MCP-Toolkit</a></td><td class="sender">23信管张浩 张浩 信管</td><td class="ts">2026-04-22 16:33</td></tr>
+<tr><td><a href="https://github.com/Usernames686/retain-pdf/tree/codex/sync-20260423" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/Usernames686/retain-pdf/tree/codex/sync-20260423</a></td><td class="sender">幸福科技小陈</td><td class="ts">2026-04-24 00:22</td></tr>
+<tr><td><a href="https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts</a></td><td class="sender">幸福科技小陈</td><td class="ts">2026-04-24 15:37</td></tr>
+<tr><td><a href="https://github.com/Leey21/awesome-ai-research-writing" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/Leey21/awesome-ai-research-writing</a></td><td class="sender">安</td><td class="ts">2026-04-24 15:59</td></tr>
+<tr><td><a href="https://github.com/wujy309-jpg/neoskills.git" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/wujy309-jpg/neoskills.git</a></td><td class="sender">让我来漏一手</td><td class="ts">2026-04-29 21:44</td></tr>
+<tr><td><a href="https://github.com/cx677/elite20-my-work" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/cx677/elite20-my-work</a></td><td class="sender">冯静雯</td><td class="ts">2026-04-30 01:25</td></tr>
+<tr><td><a href="https://github.com/a976xw7td/zhanghao-elite20已完成" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/a976xw7td/zhanghao-elite20已完成</a></td><td class="sender">23信管张浩 张浩 信管</td><td class="ts">2026-04-30 12:46</td></tr>
+<tr><td><a href="https://github.com/shenre-0215/neoskills已完成" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/shenre-0215/neoskills已完成</a></td><td class="sender">Re.</td><td class="ts">2026-04-30 12:55</td></tr>
+<tr><td><a href="https://github.com/Zian-anson/elite20-starter/tree/main/students/Zian-anson" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/Zian-anson/elite20-starter/tree/main/students/Zian-</a></td><td class="sender">安</td><td class="ts">2026-04-30 13:14</td></tr>
+<tr><td><a href="https://github.com/wuhaha55/neoskills.git" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/wuhaha55/neoskills.git</a></td><td class="sender">out慢-沙福林</td><td class="ts">2026-04-30 13:24</td></tr>
+<tr><td><a href="https://github.com/Ltt798599368923/neoskills.git已完成" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/Ltt798599368923/neoskills.git已完成</a></td><td class="sender">Blue</td><td class="ts">2026-04-30 14:49</td></tr>
+<tr><td><a href="https://github.com/Anshuwei/ai-x-elite20-teaching-materials已完成" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/Anshuwei/ai-x-elite20-teaching-materials已完成</a></td><td class="sender">安书伟</td><td class="ts">2026-04-30 15:25</td></tr>
+<tr><td><a href="https://github.com/Steve-creat-shui/week1-2.git已完成" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/Steve-creat-shui/week1-2.git已完成</a></td><td class="sender">MAGIC</td><td class="ts">2026-04-30 15:54</td></tr>
+<tr><td><a href="https://github.com/liyan55/elite20-starter/tree/main/students/liyan55" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/liyan55/elite20-starter/tree/main/students/liyan55</a></td><td class="sender">妍</td><td class="ts">2026-04-30 18:46</td></tr>
+<tr><td><a href="https://github.com/xnsnhwh-svg/neoskills.git已完成" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/xnsnhwh-svg/neoskills.git已完成</a></td><td class="sender">尹镇宇 大数据开发 大二 尹镇宇</td><td class="ts">2026-04-30 19:19</td></tr>
+<tr><td><a href="https://github.com/dark-077/elite20-starter/tree/master/Week01-02%20study任务完成" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/dark-077/elite20-starter/tree/master/Week01-02%20st</a></td><td class="sender">牛子超</td><td class="ts">2026-04-30 22:51</td></tr>
+<tr><td><a href="https://github.com/cx677/FengJingwen-elite20" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/cx677/FengJingwen-elite20</a></td><td class="sender">冯静雯</td><td class="ts">2026-04-30 22:59</td></tr>
+<tr><td><a href="https://github.com/Usernames686/english-to-chinese-study-kit" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/Usernames686/english-to-chinese-study-kit</a></td><td class="sender">幸福科技小陈</td><td class="ts">2026-05-01 16:44</td></tr>
+<tr><td><a href="https://github.com/hery-2006/neoskills" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/hery-2006/neoskills</a></td><td class="sender">🐋</td><td class="ts">2026-05-01 21:11</td></tr>
+<tr><td><a href="https://github.com/oliverhan423/week1-2/tree/main/artifacts已完成" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/oliverhan423/week1-2/tree/main/artifacts已完成</a></td><td class="sender">周子涵-音乐制作</td><td class="ts">2026-05-02 13:56</td></tr>
+<tr><td><a href="https://github.com/zi-miao/elite20-starter" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/zi-miao/elite20-starter</a></td><td class="sender">申梓淼 大一 经济学</td><td class="ts">2026-05-02 22:43</td></tr>
+<tr><td><a href="https://github.com/woniuart/elite20-starter已完成" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/woniuart/elite20-starter已完成</a></td><td class="sender">赵洁</td><td class="ts">2026-05-02 23:15</td></tr>
+<tr><td><a href="https://github.com/wuhaha55/elite20-learning-portfolio.git" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/wuhaha55/elite20-learning-portfolio.git</a></td><td class="sender">out慢-沙福林</td><td class="ts">2026-05-02 23:16</td></tr>
+<tr><td><a href="https://github.com/liz85826/neoskills" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/liz85826/neoskills</a></td><td class="sender">扶砚</td><td class="ts">2026-05-03 23:43</td></tr>
+<tr><td><a href="https://github.com/liz85826/knowledge-base已完成" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/liz85826/knowledge-base已完成</a></td><td class="sender">扶砚</td><td class="ts">2026-05-03 23:43</td></tr>
+<tr><td><a href="https://github.com/weng69081-prog/elite20-starter" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/weng69081-prog/elite20-starter</a></td><td class="sender">曾怡嫚</td><td class="ts">2026-05-04 02:28</td></tr>
+<tr><td><a href="https://github.com/Marnie0106/elite-20" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/Marnie0106/elite-20</a></td><td class="sender">喀</td><td class="ts">2026-05-04 12:02</td></tr>
+<tr><td><a href="https://github.com/aattaran/deepclaude" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/aattaran/deepclaude</a></td><td class="sender">23信管张浩 张浩 信管</td><td class="ts">2026-05-04 14:18</td></tr>
+<tr><td><a href="https://github.com/yaoyao318/week1-2已完成" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/yaoyao318/week1-2已完成</a></td><td class="sender">妖Yao</td><td class="ts">2026-05-04 14:37</td></tr>
+<tr><td><a href="https://github.com/ZS-lab-beep/zhangzhanshuo-elite20-2026" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/ZS-lab-beep/zhangzhanshuo-elite20-2026</a></td><td class="sender">软件工程 张展硕 </td><td class="ts">2026-05-04 18:52</td></tr>
+<tr><td><a href="https://github.com/mengyan-568/-elite20-my-work" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/mengyan-568/-elite20-my-work</a></td><td class="sender">小狗有什么心思</td><td class="ts">2026-05-04 21:23</td></tr>
+<tr><td><a href="https://github.com/lihuaok/elite20-starter-LH" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/lihuaok/elite20-starter-LH</a></td><td class="sender">德泰🇨🇳</td><td class="ts">2026-05-04 23:58</td></tr>
+<tr><td><a href="https://github.com/Kevint10191020/ai-tech-ops-intelligence" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/Kevint10191020/ai-tech-ops-intelligence</a></td><td class="sender">椿</td><td class="ts">2026-05-05 02:51</td></tr>
+<tr><td><a href="https://github.com/ZS-lab-beep/zhangzhan..." target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/ZS-lab-beep/zhangzhan...</a></td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-05-05 05:18</td></tr>
+<tr><td><a href="https://github.com/weng69081-prog/elite2..." target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/weng69081-prog/elite2...</a></td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-05-05 05:34</td></tr>
+<tr><td><a href="https://github.com/wuhaha55/elite20-lear..." target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/wuhaha55/elite20-lear...</a></td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-05-05 05:40</td></tr>
+<tr><td><a href="https://github.com/woniuart/elite20-star..." target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/woniuart/elite20-star...</a></td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-05-05 05:42</td></tr>
+<tr><td><a href="https://github.com/VJDiPaola/RefereeOS" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/VJDiPaola/RefereeOS</a></td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-05-05 10:25</td></tr>
+<tr><td><a href="https://github.com/Chloeyouyou/elite20-week1-2" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/Chloeyouyou/elite20-week1-2</a></td><td class="sender">μ</td><td class="ts">2026-05-05 10:33</td></tr>
+<tr><td><a href="https://github.com/NancyXie01/elite20-starter" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/NancyXie01/elite20-starter</a></td><td class="sender">谢启老师 国际教育学部</td><td class="ts">2026-05-05 16:41</td></tr>
+<tr><td><a href="https://github.com/mengyan-568/-elite20-..." target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/mengyan-568/-elite20-...</a></td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-05-05 19:01</td></tr>
+<tr><td><a href="https://github.com/Zian-anson/c5-video-agents" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/Zian-anson/c5-video-agents</a></td><td class="sender">德泰🇨🇳</td><td class="ts">2026-05-05 21:23</td></tr>
+<tr><td><a href="https://github.com/Wangdongliang51/elite20-starter已完成" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/Wangdongliang51/elite20-starter已完成</a></td><td class="sender">王老师</td><td class="ts">2026-05-05 21:36</td></tr>
+<tr><td><a href="https://github.com/ag2ai/build-with-ag2/tree/main/.agents/skills" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/ag2ai/build-with-ag2/tree/main/.agents/skills</a></td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-05-05 21:42</td></tr>
+<tr><td><a href="https://github.com/Detachment5879/neoskills已完成" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/Detachment5879/neoskills已完成</a></td><td class="sender">飞</td><td class="ts">2026-05-05 23:05</td></tr>
+<tr><td><a href="https://github.com/Torch888/elite20-starter-" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/Torch888/elite20-starter-</a></td><td class="sender">柏旭基吉</td><td class="ts">2026-05-05 23:46</td></tr>
+<tr><td><a href="https://github.com/a976xw7td/zhanghao-elite20/tree/c5-ag2-refereeos" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/a976xw7td/zhanghao-elite20/tree/c5-ag2-refereeos</a></td><td class="sender">23信管张浩 张浩 信管</td><td class="ts">2026-05-06 02:53</td></tr>
+<tr><td><a href="https://github.com/Zhangyi707/elite20-starter-任务已完成" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/Zhangyi707/elite20-starter-任务已完成</a></td><td class="sender">Z</td><td class="ts">2026-05-06 18:03</td></tr>
+<tr><td><a href="https://github.com/NancyXie01/AdCraft-AG2" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/NancyXie01/AdCraft-AG2</a></td><td class="sender">谢启老师 国际教育学部</td><td class="ts">2026-05-07 17:01</td></tr>
+<tr><td><a href="https://github.com/mengyan-568/-elite20-my-work/tree/main" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/mengyan-568/-elite20-my-work/tree/main</a></td><td class="sender">小狗有什么心思</td><td class="ts">2026-05-07 18:01</td></tr>
+<tr><td><a href="https://github.com/woniuart/c5-ag2-art-assistant已完成" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/woniuart/c5-ag2-art-assistant已完成</a></td><td class="sender">赵洁</td><td class="ts">2026-05-08 21:00</td></tr>
+<tr><td><a href="https://github.com/woniuart/c5-ag2-art-a..." target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/woniuart/c5-ag2-art-a...</a></td><td class="sender">Richard 佟佳睿</td><td class="ts">2026-05-08 21:53</td></tr>
+<tr><td><a href="https://github.com/hery-2006/RefereeOS/tree/main/.agents/skills已完成" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/hery-2006/RefereeOS/tree/main/.agents/skills已完成</a></td><td class="sender">🐋</td><td class="ts">2026-05-08 22:57</td></tr>
+<tr><td><a href="https://github.com/cx677/RefereeOS" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/cx677/RefereeOS</a></td><td class="sender">冯静雯</td><td class="ts">2026-05-08 23:00</td></tr>
+<tr><td><a href="https://github.com/dark-077/AG2-multiagent" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/dark-077/AG2-multiagent</a></td><td class="sender">牛子超</td><td class="ts">2026-05-08 23:21</td></tr>
+<tr><td><a href="https://github.com/Usernames686/RefereeOS" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/Usernames686/RefereeOS</a></td><td class="sender">幸福科技小陈</td><td class="ts">2026-05-08 23:37</td></tr>
+<tr><td><a href="https://github.com/25chefzhang/Checklist2026" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/25chefzhang/Checklist2026</a></td><td class="sender">计算机张迪</td><td class="ts">2026-05-09 22:08</td></tr>
+<tr><td><a href="https://github.com/xnsnhwh-svg/Mycelium" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/xnsnhwh-svg/Mycelium</a></td><td class="sender">尹镇宇 大数据开发 大二 尹镇宇</td><td class="ts">2026-05-09 22:17</td></tr>
+<tr><td><a href="https://github.com/Zhangyi707/AG2-open" target="_blank" style="color:var(--acc);text-decoration:none;">🔗 https://github.com/Zhangyi707/AG2-open</a></td><td class="sender">Z</td><td class="ts">2026-05-09 22:22</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
+
+<footer>
+  <p>AI+X Elite Class · 基于微信群聊天记录提取 · 文件需在微信客户端下载</p>
+</footer>
+
+<script>
+document.querySelectorAll('.tab').forEach(function(tab) {
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
+    this.classList.add('active');
+    document.querySelectorAll('.tab-pane').forEach(function(p) { p.classList.remove('active'); });
+    document.getElementById('tab-' + this.dataset.tab).classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
