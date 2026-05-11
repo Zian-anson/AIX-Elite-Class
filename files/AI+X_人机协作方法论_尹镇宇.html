@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>AI+X_人机协作方法论_尹镇宇</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<h1 id="aix-人机协作实战手册如何把-ai-从复读机变成协同专家">🚀 AI+X
+人机协作实战手册：如何把 AI 从“复读机”变成“协同专家”</h1>
+<p><strong>分享人</strong>：尹镇宇 (Elite 20) |
+<strong> <strong>核心主题</strong>：基于
+C2S 挑战赛的多维人机协作流 (Human-AI Symbiosis)</p>
+<hr />
+<h2 id="为什么你的-ai-协作总是不温不火">💡 为什么你的 AI
+协作总是不温不火？</h2>
+<p>很多同学把 AI 当成“搜索框”或者“代写工具”，结果就是：<strong>AI
+输出的内容假大空，完全没有灵魂。</strong> 在 Elite 20 的 AI+X
+范式下，我们必须学会 <strong>“分层外包”</strong> 和
+<strong>“逻辑干预”</strong>。以下是我完成 C2S
+挑战赛的全套“骚操作”，建议收藏并反复咀嚼。</p>
+<hr />
+<h2 id="第一步多模型调度-the-orchestration">🛠️ 第一步：多模型调度 (The
+Orchestration)</h2>
+<p>不要指望一个模型解决所有问题！我们要利用不同模型的“性格”：</p>
+<ol type="1">
+<li><strong>Gemini (前哨站)</strong>：它的翻译感和提示词推导能力极强。
+<ul>
+<li><strong>骚操作</strong>：先给它发作业要求，然后问它：<em>“如果你是我的协同专家，为了完成这个作业，你应该如何指导我？请帮我生成后续的协作提示词。”</em></li>
+<li><strong>收获</strong>：让 AI 帮你写 Prompt，这叫 <strong>“元编程
+(Meta-Prompting)”</strong>。</li>
+</ul></li>
+<li><strong>Trae (工程站)</strong>：它懂我的本地代码库 (<a
+href="file:///c:/Users/尹镇宇/Desktop/1/trae/feishu_summarizer.py">feishu_summarizer.py</a>)。
+<ul>
+<li><strong>骚操作</strong>：把 Gemini 生成的提示词喂给
+Trae，同时告诉它我真实做的项目细节。</li>
+<li><strong>🚩 人为干预点 1（防信息蒸发）</strong>：<strong>不要只给
+Trae 发 Gemini 生成的 Prompt！</strong>
+一定要同步上传<strong>老师的原始作业 PDF/要求文档</strong>。让 Trae
+独立校对 Gemini 是否遗漏了核心细节，防止“二传手”导致的信息偏差。</li>
+</ul></li>
+</ol>
+<hr />
+<h2 id="第二步人格化压力测试-the-strict-mentor-hack">🎭
+第二步：人格化压力测试 (The “Strict Mentor” Hack)</h2>
+<p>这是最关键的一步！当 AI 生成初稿后，千万别直接复制粘贴。</p>
+<ul>
+<li><p><strong>指令模板</strong>：<em>“现在请你切换人格，扮演一个<strong>‘拥有严格批判精神、眼里揉不得沙子’的系主任</strong>。重新审视这份作业，指出哪些地方在说废话？哪些地方没做到位？哪些建议太虚？把缺点告诉我！”</em></p></li>
+<li><p><strong>🚩 人为干预点 2（审视“审视者”）</strong>：<strong>警惕 AI
+的“虚假批判”！</strong> AI
+为了满足你“严厉”的设定，有时会为了挑刺而挑刺。此时你需要用你的
+<strong>L3 元认知</strong>
+去判断：这个批评是基于事实，还是仅仅因为我让它变得毒舌？不要盲从。</p></li>
+</ul>
+<hr />
+<h2 id="第三步l1l2l3-的真实映射-real-world-grounding">🧠
+第三步：L1/L2/L3 的真实映射 (Real-world Grounding)</h2>
+<p>作业里提到的理论，一定要在现实中找到锚点：</p>
+<ul>
+<li><p><strong>L1 (建模)</strong>：我写了 Python
+脚本抓抖音数据。</p></li>
+<li><p><strong>L2 (协同)</strong>：我和 AI
+讨论为什么“旅游视频会出复习题”，并强制它修改分类逻辑。</p></li>
+<li><p><strong>L3 (元认知)</strong>：我意识到 AI
+的“概率陷阱”，并学会了用“元指令”去打破它的逻辑回路。</p></li>
+<li><p><strong>🚩 人为干预点
+3（注入人类偏见）</strong>：<strong>保卫你的“灵魂时刻”！</strong>
+在最终稿中，一定要加入你个人的“偏见”、幽默感或真实的“博弈瞬间”。这种充满人性的东西是
+AI 审核不出来的，也是最能打动老师的“非对称竞争力”。</p></li>
+</ul>
+<hr />
+<h2 id="总结升级后的协作全景图">📋 总结：升级后的协作全景图</h2>
+<ol type="1">
+<li><strong>AI 协作初探</strong>：原始要求 -&gt; Gemini -&gt;
+协作提示词。</li>
+<li><strong>AI 协同生成</strong>：项目经历 + 提示词 +
+<strong>(人：校对原始要求)</strong> -&gt; Trae -&gt; 报告初稿。</li>
+<li><strong>AI 极限审核</strong>：初稿 -&gt; “严厉系主任”人格 -&gt;
+毒舌批评 -&gt; <strong>(人：过滤虚假批判)</strong>。</li>
+<li><strong>人类终审重构</strong>：根据批评 -&gt; 补齐细节 +
+<strong>(人：注入灵魂与偏见)</strong> -&gt; 签字提交。</li>
+</ol>
+<hr />
+<p><strong>老尹寄语</strong>： AI
+时代的竞争力，不在于你背了多少指令，而在于你是否具备 <strong>“识别 AI
+逻辑僵化”</strong> 并 <strong>“实施降维打击”</strong> 的能力。</p>
+<p>大家一起加油，把 Elite 20 的场子热起来！🔥 如有疑问，欢迎在群里随时
+Call 我。</p>
+</body>
+</html>
