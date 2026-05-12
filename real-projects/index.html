@@ -223,11 +223,11 @@ a { color:inherit; text-decoration:none; }
 }
 .timeline {
   display: flex; overflow-x: auto; gap: 0;
-  padding: 20px 0 8px; position: relative;
+  padding: 6px 0 20px; position: relative;
   max-width: 900px; margin: 0 auto;
 }
 .timeline::before {
-  content: ''; position: absolute; top: 26px; left: 30px; right: 30px;
+  content: ''; position: absolute; top: 12px; left: 30px; right: 30px;
   height: 2px; background: var(--border);
 }
 .timeline-item {
@@ -237,12 +237,12 @@ a { color:inherit; text-decoration:none; }
 .timeline-item .dot {
   width: 12px; height: 12px; border-radius: 50%;
   background: var(--card); border: 2px solid var(--border);
-  position: absolute; top: 20px; left: 50%; transform: translateX(-50%);
+  position: absolute; top: 22px; left: 50%; transform: translateX(-50%);
   z-index: 1;
 }
 .timeline-item.active .dot { background: var(--acc); border-color: var(--acc); box-shadow: 0 0 8px rgba(108,140,255,.4); }
 .timeline-item.urgent .dot { background: var(--orange); border-color: var(--orange); }
-.timeline-item .tl-date { display: block; margin-top: 36px; font-size: .65em; color: var(--acc); font-weight: 600; }
+.timeline-item .tl-date { display: block; margin-top: 40px; font-size: .65em; color: var(--acc); font-weight: 600; }
 .timeline-item .tl-label { font-size: .68em; color: var(--sec); margin-top: 2px; }
 .timeline-item.active .tl-label { color: var(--text); font-weight: 500; }
 
@@ -375,7 +375,7 @@ footer a { color: var(--acc); }
 
 <footer>
   AI+X Elite Class · <a href="https://zian-anson.github.io/AIX-Elite-Class/" target="_blank">课程主页</a>
-  · 截止日：5月12日 24:00 · 成果展：6月17日
+  · 截止日：5月13日 24:00 · 成果展：6月17日
 </footer>
 
 <!-- Modal -->
@@ -437,7 +437,7 @@ const PROJECTS = [
 // ======================== TIMELINE ========================
 const MILESTONES = [
   {date:"5月11日",label:"项目池公布",active:true},
-  {date:"5月12日",label:"意向填报截止",active:true,urgent:true},
+  {date:"5月13日",label:"意向填报截止",active:true,urgent:true},
   {date:"5月15日",label:"最终名单锁定"},
   {date:"5月16日",label:"G1提案提交"},
   {date:"6月10日",label:"G2提交自检"},
@@ -579,7 +579,7 @@ document.addEventListener('keydown', e => {
 
 // ======================== COUNTDOWN ========================
 function updateCountdown() {
-  const deadline = new Date(2026, 4, 12, 23, 59, 59); // May 12, 2026 24:00 = May 12 23:59:59
+  const deadline = new Date(2026, 4, 13, 23, 59, 59); // May 13, 2026 24:00
   const now = new Date();
   const diff = deadline - now;
 
@@ -599,7 +599,7 @@ function updateCountdown() {
     <div class="countdown-item"><div class="num">${String(h).padStart(2,'0')}</div><div class="label">时</div></div>
     <div class="countdown-item"><div class="num">${String(m).padStart(2,'0')}</div><div class="label">分</div></div>
     <div class="countdown-item"><div class="num">${String(s).padStart(2,'0')}</div><div class="label">秒</div></div>
-    <div class="deadline">⏰ 截止：<strong>5月12日 24:00</strong></div>
+    <div class="deadline">⏰ 截止：<strong>5月13日 24:00</strong></div>
   `;
 }
 
