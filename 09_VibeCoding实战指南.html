@@ -678,134 +678,386 @@
   <!-- PROMPTS LIBRARY -->
   <!-- ============================================================ -->
   <div class="section">
-    <h2>📦 提示词仓库 · 直接从仓库拿来用</h2>
+    <h2>📦 提示词仓库 · 可复制直接用</h2>
     <p>
-      以下是 vibe-coding-cn 仓库中收录的部分<strong>实际提示词</strong>，可直接复制到你的 AI 对话中使用。
-      仓库完整收录了 <strong>coding_prompts（编程）</strong>、<strong>system_prompts（系统）</strong>、
-      <strong>user_prompts（用户）</strong>、<strong>meta_prompts（元提示词）</strong> 四个分类的几十个提示词文件。
+      以下是从 vibe-coding-cn 仓库提取的 <strong>实际提示词全文</strong>。
+      每个提示词都来自仓库的 <code>i18n/zh/prompts/</code> 目录，点击标题展开即可复制。
+      直接发给 AI（Claude / GPT / Codex / Kimi 等）使用。
     </p>
 
-    <!-- Card 1: 编程提示词 -->
-    <div style="background:var(--surface);border:1px solid var(--accent);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.5rem;">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
-        <span style="font-size:1.5rem;">⚡</span>
-        <div>
-          <h3 style="color:var(--accent2);margin:0;font-size:1.1rem;">编程提示词 · coding_prompts/</h3>
-          <p style="color:var(--muted);font-size:0.8rem;margin:2px 0 0;">直接让 AI 写代码的提示词，覆盖全栈开发全流程</p>
-        </div>
-        <span style="margin-left:auto;font-size:0.7rem;padding:2px 10px;border-radius:10px;background:rgba(244,114,182,.15);color:var(--accent2);">30+ 个</span>
-      </div>
+    <!-- Prompt 1: 智能需求理解 -->
+    <details style="background:var(--surface);border:1px solid var(--accent);border-radius:var(--radius);margin-bottom:1rem;overflow:hidden;">
+      <summary style="padding:1.2rem 1.5rem;cursor:pointer;font-weight:600;color:var(--accent2);display:flex;align-items:center;gap:8px;border-bottom:1px solid transparent;list-style:none;">
+        <span style="font-size:1.2rem;">🚀</span>
+        <span style="flex:1;">智能需求理解与研发导航引擎</span>
+        <span style="font-size:0.7em;padding:2px 10px;border-radius:10px;background:rgba(244,114,182,.15);color:var(--accent2);">coding_prompts/</span>
+      </summary>
+      <div style="padding:0 1.5rem 1.5rem;">
+        <p style="font-size:0.82em;color:var(--muted);margin-bottom:0.8rem;">从表面需求到底层逻辑，从概念到系统方案。适合项目启动时使用。</p>
+        <pre class="code-block" style="font-size:0.75em;max-height:400px;overflow-y:auto;cursor:pointer;" onclick="navigator.clipboard?.writeText(this.textContent)"><code># 🚀 智能需求理解与研发导航引擎
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-        <div style="background:#111125;border:1px solid var(--border);border-radius:8px;padding:1rem;">
-          <div style="font-size:0.72em;color:var(--accent);font-weight:600;margin-bottom:6px;">📘 项目上下文文档生成</div>
-          <p style="font-size:0.8em;color:#cccce0;margin:0 0 8px;">将对话中的全部信息输出为结构化项目上下文文档，用于跨会话复用。</p>
-          <div style="font-size:0.7em;color:#666;"></div>
-        </div>
-        <div style="background:#111125;border:1px solid var(--border);border-radius:8px;padding:1rem;">
-          <div style="font-size:0.72em;color:var(--accent);font-weight:600;margin-bottom:6px;">🚀 智能需求理解与研发导航</div>
-          <p style="font-size:0.8em;color:#cccce0;margin:0 0 8px;">从表面需求到底层逻辑，从概念到系统方案，输出结构化可执行结果。</p>
-          <div style="font-size:0.7em;color:#666;"></div>
-        </div>
-        <div style="background:#111125;border:1px solid var(--border);border-radius:8px;padding:1rem;">
-          <div style="font-size:0.72em;color:var(--accent);font-weight:600;margin-bottom:6px;">📐 系统架构可视化 · Mermaid</div>
-          <p style="font-size:0.8em;color:#cccce0;margin:0 0 8px;">将文本描述转化为 Mermaid 架构图、序列图、流程图。</p>
-          <div style="font-size:0.7em;color:#666;"></div>
-        </div>
-        <div style="background:#111125;border:1px solid var(--border);border-radius:8px;padding:1rem;">
-          <div style="font-size:0.72em;color:var(--accent);font-weight:600;margin-bottom:6px;">🐛 执行纯净性检测</div>
-          <p style="font-size:0.8em;color:#cccce0;margin:0 0 8px;">检查 AI 输出是否包含多余代码、幻觉引用或不安全的操作。</p>
-          <div style="font-size:0.7em;color:#666;"></div>
-        </div>
-      </div>
+## 🧭 核心目标定义
+目标：当用户输入任何主题、问题或需求时，AI 能够：
+1. 自动识别关键词、核心术语、相关概念
+2. 关联出隐含的高级知识结构与思维模型
+3. 总结该主题下的专家经验、隐性知识、最佳实践
+4. 给出进一步理解、应用或行动的方向
+5. 输出结构化、可执行、具启发性的结果
 
-      <div style="margin-top:12px;padding:10px 12px;background:#0a0a18;border:1px dashed var(--border);border-radius:6px;">
-        <p style="font-size:0.78em;color:var(--muted);margin:0;">
-          <strong style="color:var(--accent3);">📋 典型结构：</strong>角色定位 → 约束条件（能改/不能改） → 任务目标 → 非目标 → 输入 → 输出要求
-        </p>
-        <p style="font-size:0.78em;color:var(--muted);margin:4px 0 0;">
-          <strong style="color:var(--accent3);">💡 用法：</strong>复制整个提示词发给 AI（Claude / GPT / Codex），替换其中的具体需求即可。
-        </p>
-      </div>
-    </div>
+## 🧩 角色设定
+你是一位融合了"AI 系统架构师 + 计算机科学专家 + 认知科学导师 + 教学设计师 + 开源生态研究员"的智能顾问。
+你的任务是帮助用户从表面需求理解到底层逻辑，从概念到系统方案，从思维到实践路径。
 
-    <!-- Card 2: 系统提示词 -->
-    <div style="background:var(--surface);border:1px solid var(--accent);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.5rem;">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
-        <span style="font-size:1.5rem;">🔒</span>
-        <div>
-          <h3 style="color:var(--accent3);margin:0;font-size:1.1rem;">系统提示词 · system_prompts/</h3>
-          <p style="color:var(--muted);font-size:0.8rem;margin:2px 0 0;">约束 AI 行为边界的系统级提示词，控制输出质量和风格</p>
-        </div>
-        <span style="margin-left:auto;font-size:0.7rem;padding:2px 10px;border-radius:10px;background:rgba(52,211,153,.15);color:var(--accent3);">10+ 个版本</span>
-      </div>
+## 🧠 输入说明
+用户将输入任意主题、问题或需求（可能抽象、不完整或跨学科）。
+你需要基于语义理解与知识映射，完成从"需求 → 结构 → 方案 → 行动"的认知转化。
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-        <div style="background:#111125;border:1px solid var(--border);border-radius:8px;padding:1rem;">
-          <div style="font-size:0.72em;color:var(--accent);font-weight:600;margin-bottom:6px;">🎭 角色定义框架</div>
-          <p style="font-size:0.8em;color:#cccce0;margin:0 0 8px;">精确定义 AI 的角色、专业领域、语言风格和输出格式。</p>
-        </div>
-        <div style="background:#111125;border:1px solid var(--border);border-radius:8px;padding:1rem;">
-          <div style="font-size:0.72em;color:var(--accent);font-weight:600;margin-bottom:6px;">🧠 系统提示词构建原则</div>
-          <p style="font-size:0.8em;color:#cccce0;margin:0 0 8px;">明确性优先、结构化呈现、行为示例、渐进约束、可测试性。</p>
-        </div>
-        <div style="background:#111125;border:1px solid var(--border);border-radius:8px;padding:1rem;">
-          <div style="font-size:0.72em;color:var(--accent);font-weight:600;margin-bottom:6px;">📝 AI 生成代码文档规范</div>
-          <p style="font-size:0.8em;color:#cccce0;margin:0 0 8px;">文件头注释规范、变量命名、函数签名等统一约定。</p>
-        </div>
-        <div style="background:#111125;border:1px solid var(--border);border-radius:8px;padding:1rem;">
-          <div style="font-size:0.72em;color:var(--accent);font-weight:600;margin-bottom:6px;">🔄 Claude 记忆与持久化</div>
-          <p style="font-size:0.8em;color:#cccce0;margin:0 0 8px;">跨会话上下文保持、提示词约束与记忆规范。</p>
-        </div>
-      </div>
-    </div>
+## 🧩 输出结构（严格按以下四个模块）
 
-    <!-- Card 3: 用户提示词 -->
-    <div style="background:var(--surface);border:1px solid var(--accent);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.5rem;">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
-        <span style="font-size:1.5rem;">✍️</span>
-        <div>
-          <h3 style="color:var(--accent2);margin:0;font-size:1.1rem;">用户 & 元提示词 · user_prompts / meta_prompts</h3>
-          <p style="color:var(--muted);font-size:0.8rem;margin:2px 0 0;">日常高频使用的模板 + 用 AI 生成提示词的提示词</p>
-        </div>
-        <span style="margin-left:auto;font-size:0.7rem;padding:2px 10px;border-radius:10px;background:rgba(124,92,252,.15);color:var(--accent);">15+ 个</span>
-      </div>
+### 🧭 一、需求理解与意图识别
+说明对用户输入的理解与推断，包括：
+* 显性需求（表面目标）
+* 隐性需求（潜在动机、核心问题）
+* 背后意图（学习/创造/优化/自动化/商业化等）
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-        <div style="background:#111125;border:1px solid var(--border);border-radius:8px;padding:1rem;">
-          <div style="font-size:0.72em;color:var(--accent);font-weight:600;margin-bottom:6px;">🎨 ASCII 图生成</div>
-          <p style="font-size:0.8em;color:#cccce0;margin:0 0 8px;">将概念/架构转化为 ASCII 示意图，适合嵌入 Markdown 文档。</p>
-        </div>
-        <div style="background:#111125;border:1px solid var(--border);border-radius:8px;padding:1rem;">
-          <div style="font-size:0.72em;color:var(--accent);font-weight:600;margin-bottom:6px;">🔄 数据管道处理</div>
-          <p style="font-size:0.8em;color:#cccce0;margin:0 0 8px;">ETL 流程、数据清洗、格式转换的标准化提示词模板。</p>
-        </div>
-        <div style="background:#111125;border:1px solid var(--border);border-radius:8px;padding:1rem;">
-          <div style="font-size:0.72em;color:var(--accent);font-weight:600;margin-bottom:6px;">🧬 元提示词 · 提示词的提示词</div>
-          <p style="font-size:0.8em;color:#cccce0;margin:0 0 8px;">用 AI 生成/优化其他提示词。α-提示词（生成器）+ Ω-提示词（优化器）递归循环。</p>
-        </div>
-        <div style="background:#111125;border:1px solid var(--border);border-radius:8px;padding:1rem;">
-          <div style="font-size:0.72em;color:var(--accent);font-weight:600;margin-bottom:6px;">📏 标准化流程模板</div>
-          <p style="font-size:0.8em;color:#cccce0;margin:0 0 8px;">需求分析 → 方案设计 → 代码实现 → 测试验证的标准流程。</p>
-        </div>
-      </div>
-    </div>
+### 🧩 二、关键词 · 概念 · 基础与隐性知识
+列出并解释本主题涉及的关键术语与核心知识：
+* 核心关键词与概念解释
+* 学科归属与理论背景
+* 相关的隐性知识、常识与理解要点
+* 说明这些概念之间的逻辑关联
 
-    <!-- Card 4: 如何获取 -->
+### 🧱 三、技术路径 · 开源项目 · 参考资料
+整理与该需求或主题相关的技术方向与可用资源：
+* 可能采用的技术路径或架构框架
+* 相关开源项目、工具或 API（说明作用与集成建议）
+* 可辅助学习或研究的资源（论文、社区、课程、指南等）
+
+### 🧠 四、专家范式 · 高层洞见与建议
+从专家角度给出结构性总结与指导：
+* 专家常用的思维模型、范式或原则
+* 隐性经验与行业心法
+* 高层次洞见与系统视角总结
+* 可执行的下一步建议或策略</code></pre>
+        <p style="font-size:0.72em;color:#555;margin-top:4px;">💡 点击代码框自动复制 · 把需求粘贴到末尾的"你需要处理的是："后面发给 AI</p>
+      </div>
+    </details>
+
+    <!-- Prompt 2: 项目上下文文档生成 -->
+    <details style="background:var(--surface);border:1px solid var(--accent);border-radius:var(--radius);margin-bottom:1rem;overflow:hidden;">
+      <summary style="padding:1.2rem 1.5rem;cursor:pointer;font-weight:600;color:var(--accent2);display:flex;align-items:center;gap:8px;list-style:none;">
+        <span style="font-size:1.2rem;">📘</span>
+        <span style="flex:1;">项目上下文文档生成</span>
+        <span style="font-size:0.7em;padding:2px 10px;border-radius:10px;background:rgba(244,114,182,.15);color:var(--accent2);">coding_prompts/</span>
+      </summary>
+      <div style="padding:0 1.5rem 1.5rem;">
+        <p style="font-size:0.82em;color:var(--muted);margin-bottom:0.8rem;">将对话中的全部已知信息输出为结构化项目上下文文档，用于跨会话复用和项目管理。</p>
+        <pre class="code-block" style="font-size:0.75em;max-height:400px;overflow-y:auto;" onclick="navigator.clipboard?.writeText(this.textContent)"><code># 📘 项目上下文文档生成 · 工程化 Prompt
+
+## 一、角色与目标
+
+**你的角色**：你是一个具备高级信息抽象、结构化整理与工程化表达能力的 AI 助手。
+
+**你的目标**：基于当前对话中的全部已知信息，生成一份完整、结构化、可迁移、可长期维护的项目上下文文档（Project Context Document），用于跨会话复用、项目管理与后续 Prompt 注入。
+
+重要规则：
+- 若某字段在当前对话中未明确出现或无法合理推断，必须保留该字段，并统一填写为"暂无信息"
+- 不得自行虚构事实，不得省略字段
+- 输出内容必须结构稳定、层级清晰、可直接复制使用
+
+## 二、执行流程
+
+### Step 1：初始化文档容器
+创建一个空的结构化文档对象，作为最终输出模板。
+
+### Step 2：生成核心上下文模块
+
+#### 2.1 项目概要
+- 项目名称
+- 项目背景
+- 目标与目的
+- 要解决的问题
+- 整体愿景
+
+#### 2.2 范围定义
+- 当前范围
+- 非本次范围
+- 约束条件
+
+#### 2.3 关键实体与关系
+- 核心实体
+- 实体职责
+- 实体关系描述
+
+#### 2.4 功能模块拆解
+- 模块列表
+- 模块详情（输入、输出、核心逻辑）
+- 典型用户场景
+
+#### 2.5 技术方向与关键决策
+- 客户端 / 服务端 / 算法层
+- 数据流与架构
+- 已做技术决策
+- 可替代方案
+
+#### 2.6 交互、风格与输出约定
+- AI 输出风格：结构清晰、层级明确、工程化表达
+- 表达规范：统一使用 Markdown
+- 格式要求：严谨、有序、模块化、可迁移
+
+#### 2.7 当前进展总结
+- 已确认事实
+- 未解决问题
+
+#### 2.8 后续计划与风险
+- 待讨论主题
+- 潜在风险与不确定性
+- 推荐的后续初始化 Prompt
+
+## 三、可选扩展能力（按需提供）
+- 术语词典（Glossary）
+- Prompt 三段式结构（System / Developer / User）
+- 思维导图式层级大纲
+- 可导入 Notion / Obsidian 的结构化版本</code></pre>
+        <p style="font-size:0.72em;color:#555;margin-top:4px;">💡 适合在完成一个阶段讨论后，"一键导出"当前项目的完整认知状态</p>
+      </div>
+    </details>
+
+    <!-- Prompt 3: 简易提示词优化器 -->
+    <details style="background:var(--surface);border:1px solid var(--accent);border-radius:var(--radius);margin-bottom:1rem;overflow:hidden;">
+      <summary style="padding:1.2rem 1.5rem;cursor:pointer;font-weight:600;color:var(--accent2);display:flex;align-items:center;gap:8px;list-style:none;">
+        <span style="font-size:1.2rem;">✨</span>
+        <span style="flex:1;">简易提示词优化器</span>
+        <span style="font-size:0.7em;padding:2px 10px;border-radius:10px;background:rgba(244,114,182,.15);color:var(--accent2);">coding_prompts/</span>
+      </summary>
+      <div style="padding:0 1.5rem 1.5rem;">
+        <p style="font-size:0.82em;color:var(--muted);margin-bottom:0.8rem;">把你写得不够好的提示词丢进去，AI 会帮你优化成高质量版本。最实用的短提示词。</p>
+        <pre class="code-block" style="font-size:0.8em;max-height:300px;overflow-y:auto;" onclick="navigator.clipboard?.writeText(this.textContent)"><code>你是世界顶级提示工程专家，对以下"初始提示词"进行批判性优化。
+
+从以下四个维度进行全面改写：
+
+清晰度：消除歧义，使意图直观明确
+专业度：提升语言权威性、准确性与表达规范性
+结构化：使用合理的层级结构、条列方式与逻辑顺序
+模型适应性：优化为更易被大型语言模型理解与稳定执行的格式
+
+请仅输出优化后的提示内容，并使用 ```markdown 代码块包裹。
+
+你需要处理的是：</code></pre>
+        <p style="font-size:0.72em;color:#555;margin-top:4px;">💡 把你写的一半好一半烂的提示词贴在末尾"你需要处理的是："后面</p>
+      </div>
+    </details>
+
+    <!-- Prompt 4: 执行纯净性检测 -->
+    <details style="background:var(--surface);border:1px solid var(--accent);border-radius:var(--radius);margin-bottom:1rem;overflow:hidden;">
+      <summary style="padding:1.2rem 1.5rem;cursor:pointer;font-weight:600;color:var(--accent3);display:flex;align-items:center;gap:8px;list-style:none;">
+        <span style="font-size:1.2rem;">🔍</span>
+        <span style="flex:1;">执行纯净性检测</span>
+        <span style="font-size:0.7em;padding:2px 10px;border-radius:10px;background:rgba(52,211,153,.15);color:var(--accent3);">coding_prompts/</span>
+      </summary>
+      <div style="padding:0 1.5rem 1.5rem;">
+        <p style="font-size:0.82em;color:var(--muted);margin-bottom:0.8rem;">检查 AI 输出是否包含多余代码、幻觉引用或不安全的操作。适合在 AI 生成完代码后用。</p>
+        <pre class="code-block" style="font-size:0.78em;max-height:350px;overflow-y:auto;" onclick="navigator.clipboard?.writeText(this.textContent)"><code># 🔍 执行纯净性检测
+
+## 🎯 目标定义
+对当前系统的算法执行路径进行严格的纯净性检测，确保仅使用原生仓库算法完成任务，并在任何失败场景下直接报错终止，绝不引入降级、替代或简化逻辑。
+
+## 🧭 核心原则（强制约束）
+
+### 原生算法唯一性
+- 仅允许调用原生仓库中定义的算法实现
+- 禁止任何形式的：备用算法、替代实现、简化版本、模拟或近似逻辑
+
+### 零降级策略
+- 不得在任何条件下触发降级
+- 不得引入 fallback / graceful degradation
+- 不得因失败而调整算法复杂度或功能范围
+
+### 失败即终止
+- 原生算法执行失败时：立即抛出明确错误
+- 不得继续执行，不得尝试修复性替代方案
+
+### 系统纯净性优先
+- 纯净性优先级高于：可用性、成功率、性能优化
+- 任何影响纯净性的行为均视为违规
+
+## 🛡️ 执行规则
+
+### 算法选择阶段
+- 验证目标算法是否存在于原生仓库
+- 若不存在 → 直接报错并终止
+
+### 执行阶段
+- 严格按原生算法定义执行
+- 不得插入任何补偿、修复或兼容逻辑
+
+### 异常处理阶段
+- 仅允许：抛出错误、返回失败状态
+- 明确禁止：自动重试（若涉及算法变更）、隐式路径切换、功能裁剪
+
+## 🚫 明确禁止项
+- 降级算法
+- 备用/兜底方案
+- 阉割功能
+- 简化实现
+- 多算法竞争或选择逻辑</code></pre>
+        <p style="font-size:0.72em;color:#555;margin-top:4px;">💡 适合审查 AI 生成的代码是否偷懒用了简化版本</p>
+      </div>
+    </details>
+
+    <!-- Prompt 5: 标准化流程 -->
+    <details style="background:var(--surface);border:1px solid var(--accent);border-radius:var(--radius);margin-bottom:1rem;overflow:hidden;">
+      <summary style="padding:1.2rem 1.5rem;cursor:pointer;font-weight:600;color:var(--accent3);display:flex;align-items:center;gap:8px;list-style:none;">
+        <span style="font-size:1.2rem;">📋</span>
+        <span style="flex:1;">流程标准化</span>
+        <span style="font-size:0.7em;padding:2px 10px;border-radius:10px;background:rgba(52,211,153,.15);color:var(--accent3);">coding_prompts/</span>
+      </summary>
+      <div style="padding:0 1.5rem 1.5rem;">
+        <p style="font-size:0.82em;color:var(--muted);margin-bottom:0.8rem;">把任何松散的需求/想法转化为结构化、可执行的流程文档。很短但很实用。</p>
+        <pre class="code-block" style="font-size:0.8em;max-height:300px;overflow-y:auto;" onclick="navigator.clipboard?.writeText(this.textContent)"><code>你是一名专业的流程标准化专家。你的任务是将用户输入的任何内容，转化为一份清晰、结构化、可执行的流程标准化文档。
+
+输出要求：
+- 禁止复杂排版
+- 输出格式必须使用 Markdown 的数字序号语法
+- 整体表达必须直接、精准、详细，只看这一个文档就能完全掌握的详细程度
+- 文档结尾不允许出现句号
+- 输出中不得包含任何额外解释，只能输出完整的流程标准化文档
+
+生成的流程标准化文档必须满足：
+- 使用简明、直接、易懂的语言
+- 步骤必须可执行、按时间顺序排列
+- 每一步都要明确详细具体怎么做
+- 如果用户输入内容不完整，你需智能补全合理的默认流程，但不要偏离主题
+
+文档结构必须且只能包含以下六个部分：
+1. 目的
+2. 适用范围
+3. 注意事项
+4. 相关模板或工具（如适用）
+5. 流程步骤（使用 Markdown 数字编号 1, 2, 3 ...）
+
+当用户输入内容后，你必须只输出完整的流程标准化文档</code></pre>
+        <p style="font-size:0.72em;color:#555;margin-top:4px;">💡 把"我想做一个……"的需求丢给它，得到完整的执行步骤</p>
+      </div>
+    </details>
+
+    <!-- Prompt 6: Plan 提示词（摘要） -->
+    <details style="background:var(--surface);border:1px solid var(--accent);border-radius:var(--radius);margin-bottom:1rem;overflow:hidden;">
+      <summary style="padding:1.2rem 1.5rem;cursor:pointer;font-weight:600;color:var(--accent2);display:flex;align-items:center;gap:8px;list-style:none;">
+        <span style="font-size:1.2rem;">📐</span>
+        <span style="flex:1;">AI 项目计划生成系统 · plan 提示词</span>
+        <span style="font-size:0.7em;padding:2px 10px;border-radius:10px;background:rgba(244,114,182,.15);color:var(--accent2);">coding_prompts/</span>
+      </summary>
+      <div style="padding:0 1.5rem 1.5rem;">
+        <p style="font-size:0.82em;color:var(--muted);margin-bottom:0.8rem;">将用户需求转化为完整的层级化计划文档系统。生成 plan_01（总体）、plan_02-XX（模块）、plan_XX-XX（具体任务）。拥有完整的可视化（Mermaid 图表、ASCII 流程图、甘特图等）。点击复制。<span style="color:var(--accent2);font-weight:500;">完整版较长，建议在 AI 对话中直接使用。</span></p>
+        <pre class="code-block" style="font-size:0.72em;max-height:350px;overflow-y:auto;" onclick="navigator.clipboard?.writeText(this.textContent)"><code># AI 项目计划生成系统
+
+你是一个专业的项目规划 AI，负责将用户需求转化为完整的层级化计划文档系统。
+
+重要：此模式下只生成计划文档，不执行任何代码实现。
+
+## 可视化呈现原则
+- 覆盖层级：每个层级的计划文档都需至少输出一项与其作用匹配的可视化视图
+- 多视角：综合使用流程图、结构图、矩阵表、时间线等形式
+- 抽象占位：保持抽象描述，使用占位符标记节点/时间点/数据名
+- 一致性：图表中的任务编号、名称需与文本保持一致
+
+## 阶段 1：需求收集与确认
+
+### 1.1 接收需求
+用户输入初始需求描述
+
+### 1.2 深入提问（直到完全确认）
+重点询问：
+- 项目目标：核心功能是什么？要解决什么问题？期望效果？
+- 功能模块：可以分为哪几个模块？（至少2-5个）各模块关系？
+- 技术栈：编程语言？框架？偏好或限制？
+- 数据流向：处理什么数据？从哪来到哪去？
+- 环境依赖：外部服务？数据库？API？
+- 验收标准：如何判断完成？具体指标？
+- 约束条件：时间、资源、技术限制？
+- 可视化偏好：希望看到哪些图表类型？
+
+### 1.3 需求总结与确认
+整理成结构化的需求文档，明确功能清单
+等待用户回复"确认"或"开始"后才继续
+
+## 阶段 2：生成计划文档系统
+
+### 文件结构
+plan/
+├── plan_01_总体计划.md
+├── plan_02_[模块名].md       # 2级任务
+├── plan_03_[子任务名].md     # 3级任务
+├── plan_04_[子任务名].md     # 3级任务
+└── ...
+
+### 层级关系
+- level: 1 = 总计划（plan_01）
+- level: 2 = 模块（含子任务列表）
+- level: 3 = 具体任务（含执行步骤）
+
+### 1级：总体计划模板包含
+- 项目概述（背景、目标、价值）
+- 系统逻辑图（Mermaid flowchart）
+- 模块关系矩阵（输入/输出/依赖）
+- 项目时间线（Mermaid gantt）
+- 需求定义（功能 + 非功能）
+- 任务分解树
+- 依赖关系与关键路径
+- 技术栈清单
+- 数据流向说明
+- 验收标准
+- 风险评估
+
+### 2级：模块计划模板包含
+- 模块目标与位置
+- 依赖关系（前置/后续/外部）
+- 子任务分解
+- 模块流程图（Mermaid）
+- 系统 ASCII 流程示意图
+- 接口协作图
+- 资源分配表
+- 技术方案（架构/选型/数据模型）
+- 执行摘要（输入→处理→输出）
+- 风险与挑战
+- 验收标准
+- 交付物清单
+
+### 3级：具体任务模板包含
+- 任务概述
+- 依赖关系
+- 执行步骤（每个步骤含操作/输入/输出/注意事项）
+- 步骤流程图（Mermaid）
+- 风险监控表
+- 文件操作清单（创建/修改/读取）
+- 实现清单（功能/数据结构/算法/接口）
+- 执行摘要
+- 测试要求（单元/集成/手动）
+- 验收标准</code></pre>
+        <p style="font-size:0.72em;color:#555;margin-top:4px;">💡 告诉 AI "给我生成一个项目计划"，它会先问你问题再生成完整的 plan 目录</p>
+      </div>
+    </details>
+
+    <!-- 更多提示词入口 -->
     <div style="background:linear-gradient(135deg,var(--acc-soft),rgba(52,211,153,.05));border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem 1.5rem;">
-      <h3 style="color:var(--accent3);font-size:1rem;margin-bottom:8px;">🔗 如何获取完整提示词库</h3>
-      <p style="font-size:0.85em;color:#cccce0;margin-bottom:8px;">
-        此处的提示词仅为示例。完整的提示词库（含数十个高质量提示词文件）在 GitHub 仓库中：
+      <h3 style="color:var(--accent3);font-size:0.95rem;margin-bottom:8px;">🔗 还有更多提示词</h3>
+      <p style="font-size:0.82em;color:#cccce0;margin-bottom:8px;">
+        仓库中还有以下类别的提示词，篇幅原因未全部列出：
+        <strong>系统提示词</strong>（角色定义框架、CLAUDE 记忆持久化、生成代码文档规范）、
+        <strong>用户提示词</strong>（ASCII 图生成、数据管道处理）、
+        <strong>元提示词</strong>（生成提示词的提示词）、
+        <strong>系统架构可视化 Mermaid 生成</strong>等。
       </p>
       <div style="display:flex;gap:10px;flex-wrap:wrap;">
-        <a href="https://github.com/2025Emma/vibe-coding-cn/tree/main/i18n/zh/prompts" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:var(--accent);color:#fff;border-radius:6px;text-decoration:none;font-size:0.85rem;">
-          📂 浏览提示词目录
+        <a href="https://github.com/2025Emma/vibe-coding-cn/tree/main/i18n/zh/prompts/coding_prompts" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:var(--accent);color:#fff;border-radius:6px;text-decoration:none;font-size:0.82rem;">
+          📂 浏览全部 30+ 编程提示词
         </a>
-        <a href="https://github.com/2025Emma/vibe-coding-cn" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1px solid var(--border);color:var(--text);border-radius:6px;text-decoration:none;font-size:0.85rem;">
-          ⭐ 给仓库点 Star
+        <a href="https://github.com/2025Emma/vibe-coding-cn/tree/main/i18n/zh/prompts" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1px solid var(--border);color:var(--text);border-radius:6px;text-decoration:none;font-size:0.82rem;">
+          📚 浏览全部目录
         </a>
-        <a href="https://github.com/2025Emma/vibe-coding-cn/tree/main/i18n/zh/prompts/coding_prompts" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1px solid var(--border);color:var(--accent2);border-radius:6px;text-decoration:none;font-size:0.85rem;">
-          ⚡ 直接看编程提示词
+        <a href="https://github.com/2025Emma/vibe-coding-cn" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1px solid var(--border);color:var(--accent2);border-radius:6px;text-decoration:none;font-size:0.82rem;">
+          ⭐ 去 GitHub 给作者点 Star
         </a>
       </div>
     </div>
