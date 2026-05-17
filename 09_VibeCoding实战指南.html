@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vibe Coding 实战指南 — AI+X 精英班</title>
+  <style>
+    :root {
+      --bg: #0f0f1a;
+      --card: #1a1a2e;
+      --surface: #16162a;
+      --border: #2a2a4a;
+      --text: #e0e0f0;
+      --muted: #8888aa;
+      --accent: #7c5cfc;
+      --accent2: #f472b6;
+      --accent3: #34d399;
+      --acc-soft: rgba(124,92,252,.1);
+      --radius: 12px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+    .container { max-width: 860px; margin: 0 auto; }
+
+    /* Header */
+    .lesson-header {
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .lesson-header .meta {
+      color: var(--muted);
+      font-size: 0.85rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .lesson-header h1 {
+      font-size: 2rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+    .lesson-header .subtitle {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* Section */
+    .section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .section h2 {
+      font-size: 1.25rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .section h3 {
+      font-size: 1.05rem;
+      color: var(--accent2);
+      margin: 1rem 0 0.5rem;
+    }
+    .section h4 {
+      color: var(--accent3);
+      font-weight: 500;
+      margin: 0.75rem 0 0.25rem;
+    }
+    .section p { margin-bottom: 0.8rem; color: #cccce0; }
+    .section ul, .section ol { margin: 0.5rem 0 0.8rem 1.5rem; }
+    .section li { margin-bottom: 0.4rem; color: #cccce0; }
+
+    /* Code */
+    code, .code-block {
+      background: #111125;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.15em 0.4em;
+      font-size: 0.88em;
+      color: var(--accent3);
+    }
+    pre.code-block {
+      padding: 1rem;
+      margin: 0.8rem 0;
+      overflow-x: auto;
+      line-height: 1.5;
+      font-size: 0.82em;
+    }
+    pre.code-block code {
+      background: none;
+      border: none;
+      padding: 0;
+      font-size: 1em;
+    }
+
+    /* Quote */
+    .quote {
+      border-left: 3px solid var(--accent);
+      background: var(--acc-soft);
+      padding: 0.8rem 1rem;
+      margin: 1rem 0;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: #d0d0e8;
+    }
+
+    /* Tag */
+    .tag {
+      display: inline-block;
+      font-size: 0.72em;
+      padding: 2px 10px;
+      border-radius: 12px;
+      background: var(--acc-soft);
+      color: var(--accent);
+      margin: 2px;
+    }
+    .tag.green { background: rgba(52,211,153,.12); color: var(--accent3); }
+    .tag.pink { background: rgba(244,114,182,.12); color: var(--accent2); }
+
+    /* Card grid */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 10px;
+      margin: 1rem 0;
+    }
+    .mini-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+    .mini-card .icon { font-size: 1.3em; margin-bottom: 4px; }
+    .mini-card h4 { font-size: 0.9em; margin-bottom: 4px; color: var(--text); }
+    .mini-card p { font-size: 0.8em; color: var(--muted); margin: 0; }
+
+    /* TOC */
+    .toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .toc h2 { font-size: 1rem; color: var(--accent); margin-bottom: 0.8rem; border: none; padding: 0; }
+    .toc ol { margin-left: 1.2rem; }
+    .toc li { margin-bottom: 0.3rem; }
+    .toc a { color: var(--accent3); text-decoration: none; font-size: 0.9em; }
+    .toc a:hover { text-decoration: underline; }
+
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.88em;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.5rem 0.8rem;
+      text-align: left;
+    }
+    th { background: var(--surface); color: var(--accent); font-weight: 600; }
+    td { color: #cccce0; }
+
+    /* Separator */
+    .step-divider {
+      text-align: center;
+      color: var(--border);
+      font-size: 1.5rem;
+      margin: 2rem 0;
+      letter-spacing: 6px;
+    }
+
+    /* Hierarchy box */
+    .hierarchy {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 1rem 0;
+    }
+    .hierarchy-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+    }
+    .hierarchy-item .label {
+      font-size: 0.72em;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .hierarchy-item p { font-size: 0.88em; margin: 4px 0 0; color: #cccce0; }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: var(--muted);
+      font-size: 0.78em;
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .lesson-header h1 { font-size: 1.4em; }
+      .card-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <div class="lesson-header">
+    <div class="meta">
+      <span>📖 课外拓展</span>
+      <span>⭐ 20.9k · GitHub</span>
+      <span class="tag pink">vibe-coding</span>
+      <span class="tag green">AI 结对编程</span>
+    </div>
+    <h1>Vibe Coding 实战指南</h1>
+    <p class="subtitle">
+      基于 tukuaiai 的 <a href="https://github.com/2025Emma/vibe-coding-cn" target="_blank" style="color:var(--accent3);">vibe-coding-cn</a>（20.9k⭐）整理。
+      一个与 AI 结对编程、将想法变为现实的终极工作流。全套方法论 + 提示词库 + 技能体系。
+    </p>
+  </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <h2>📑 学习路径（6步）</h2>
+    <ol>
+      <li><a href="#step1">读 README — 理解核心理念</a></li>
+      <li><a href="#step2">读 AGENTS.md — 掌握编码规范与项目结构</a></li>
+      <li><a href="#step3">研读方法论文档 — 道·法·术·器体系</a></li>
+      <li><a href="#step4">实战编程提示词 — 让 AI 高效产出</a></li>
+      <li><a href="#step5">系统提示词工程 — 约束 AI 行为边界</a></li>
+      <li><a href="#step6">模块化技能体系 — Skills 的构建与复用</a></li>
+    </ol>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- STEP 1 -->
+  <!-- ============================================================ -->
+  <div class="section" id="step1">
+    <h2>📖 第1步 · 读 README — 理解核心理念</h2>
+    <p>
+      <strong>目标：</strong>建立对 Vibe Coding 的整体认知，理解它不是一个偷懒工具，
+      而是一套<strong>「规划驱动 + 上下文固定 + AI 结对执行」</strong>的工程化方法论。
+    </p>
+
+    <h3>一句话定义</h3>
+    <div class="quote">
+      Vibe Coding = 规划驱动 + 上下文固定 + AI 结对执行，让「从想法到可维护代码」变成一条可审计的流水线，而不是一团无法迭代的巨石文件。
+    </div>
+
+    <h3>核心信念（作者原话）</h3>
+    <div class="quote">
+      规划就是一切。谨慎让 AI 自主规划，否则你的代码库会变成一团无法管理的乱麻。
+    </div>
+
+    <h3>你能从这个仓库得到什么</h3>
+    <ul>
+      <li><strong>成体系的提示词工具链</strong> — 系统提示词约束 AI 行为，编程提示词提供需求澄清→计划→执行的全链路脚本</li>
+      <li><strong>闭环交付路径</strong> — 需求 → 上下文文档 → 实施计划 → 分步实现 → 自测 → 进度记录，全程可复盘可移交</li>
+      <li><strong>模块化技能体系</strong> — 面向特定领域（数据库、API 集成、DevOps）的即用型 skills</li>
+      <li><strong>元方法论</strong> — 递归自优化系统：用 AI 生成提示词 → 再用 AI 优化这些提示词 → 循环迭代</li>
+    </ul>
+
+    <h3>仓库速览</h3>
+    <table>
+      <tr><th>维度</th><th>值</th></tr>
+      <tr><td>⭐ Stars</td><td>20,900+</td></tr>
+      <tr><td>🍴 Forks</td><td>2,300+</td></tr>
+      <tr><td>📝 Commits</td><td>130</td></tr>
+      <tr><td>👤 作者</td><td>tukuaiai (2025Emma)</td></tr>
+      <tr><td>📜 许可证</td><td>MIT</td></tr>
+      <tr><td>🌐 语言</td><td>26 种语言（i18n）</td></tr>
+    </table>
+  </div>
+
+  <div class="step-divider">· · ·</div>
+
+  <!-- ============================================================ -->
+  <!-- STEP 2 -->
+  <!-- ============================================================ -->
+  <div class="section" id="step2">
+    <h2>📐 第2步 · 读 AGENTS.md — 项目结构与编码规范</h2>
+    <p>
+      <strong>目标：</strong>理解仓库的目录组织哲学和代码质量要求，为后续深入阅读打基础。
+      这也是该仓库对 AI Agent 的行为指南——<strong>学习它如何约束 AI</strong> 本身就是最重要的一课。
+    </p>
+
+    <h3>仓库目录结构</h3>
+    <pre class="code-block"><code>vibe-coding-cn/
+├── README.md              # 项目全貌
+├── AGENTS.md              # AI Agent 行为准则 & 目录说明
+├── CLAUDE.md              # Claude 模型的上下文配置
+├── GEMINI.md              # Gemini 模型的上下文配置
+├── Makefile               # make lint / make help
+│
+├── i18n/zh/prompts/       ★ 核心资产
+│   ├── coding_prompts/    📌 编程提示词（你最该看的）
+│   ├── system_prompts/      系统提示词
+│   ├── user_prompts/        用户自定义
+│   └── meta_prompts/        元提示词
+│
+├── i18n/zh/documents/     # 方法论知识库
+│   ├── Methodology and Principles/
+│   ├── Templates and Resources/
+│   └── Tutorials and Guides/
+│
+├── i18n/zh/skills/        # 模块化技能库
+│   ├── ccxt/              # 加密货币
+│   ├── claude-code-guide/ # Claude Code 指南
+│   ├── postgresql/        # PostgreSQL
+│   ├── telegram-dev/      # Telegram Bot
+│   └── ... (10+ 个技能)
+│
+├── libs/external/         # 外部工具集成
+│   ├── prompts-library/   # Excel↔Markdown 提示词转换
+│   └── l10n-tool/         # 多语言批量翻译脚本
+│
+└── backups/               # 备份脚本
+</code></pre>
+
+    <h3>编码规范要点</h3>
+    <ul>
+      <li><strong>语言策略：</strong>文档/注释用中文，代码符号（函数/变量/模块）用英文</li>
+      <li><strong>缩进：</strong>空格缩进 2 或 4 可选但不得混用，行宽 ≤ 120 列</li>
+      <li><strong>命名：</strong>小写加中划线或下划线，不用空格和特殊字符</li>
+      <li><strong>函数：</strong>单一职责、短小精悍、接口签名稳定</li>
+      <li><strong>提交格式：</strong>feat|fix|docs|chore|refactor|test: scope – summary</li>
+      <li><strong>提交前清单：</strong>跑通 <code>make lint</code>、无临时文件、更新对应文档</li>
+    </ul>
+  </div>
+
+  <div class="step-divider">· · ·</div>
+
+  <!-- ============================================================ -->
+  <!-- STEP 3 -->
+  <!-- ============================================================ -->
+  <div class="section" id="step3">
+    <h2>🧠 第3步 · 方法论文档 — 道·法·术·器体系</h2>
+    <p>
+      <strong>目标：</strong>深入作者的思维方式。这不是编码技巧课程，而是一套完整的
+      <strong>AI 协作哲学</strong>。仓库的 <code>i18n/zh/documents/</code> 收录了方法论与原则、
+      模板与资源、教程与指南三大类文档。
+    </p>
+
+    <h3>道 · 底层原则</h3>
+    <div class="card-grid">
+      <div class="mini-card">
+        <div class="icon">🤖</div>
+        <h4>AI 优先</h4>
+        <p>凡是 AI 能做的，就不要人工做。一切问题问 AI。</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">📦</div>
+        <h4>上下文第一</h4>
+        <p>上下文是 Vibe Coding 的第一性要素。垃圾进，垃圾出。</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">🎯</div>
+        <h4>目的主导</h4>
+        <p>开发一切动作围绕"目的"展开，不是围绕"技术"。</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">🧩</div>
+        <h4>先结构后代码</h4>
+        <p>先规划好框架，不然后面技术还不完。</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">🪓</div>
+        <h4>奥卡姆剃刀</h4>
+        <p>如无必要，勿增代码。</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">📊</div>
+        <h4>帕累托法则</h4>
+        <p>关注重要的那 20%。</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">🔄</div>
+        <h4>逆向思考</h4>
+        <p>先明确需求，从需求逆向构建代码。</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">🎯</div>
+        <h4>极致专注</h4>
+        <p>一次只做一件事，极致的专注可以击穿代码。</p>
+      </div>
+    </div>
+
+    <h3>法 · 工作方法</h3>
+    <table>
+      <tr><th>原则</th><th>说明</th></tr>
+      <tr><td>一句话目标 + 非目标</td><td>明确做什么、更明确不做什么</td></tr>
+      <tr><td>正交性</td><td>功能不要重复，分场景看待</td></tr>
+      <tr><td>能抄不写</td><td>先问 AI 有没有合适仓库，下载下来改</td></tr>
+      <tr><td>先看官方文档</td><td>把官方文档爬下来喂给 AI</td></tr>
+      <tr><td>按职责拆模块</td><td>功能模块边界清晰</td></tr>
+      <tr><td>接口先行，实现后补</td><td>先定义契约再实现细节</td></tr>
+      <tr><td>一次只改一个模块</td><td>避免连锁故障</td></tr>
+      <tr><td>文档即上下文</td><td>文档是写给 AI 看的，不是事后补的</td></tr>
+    </table>
+
+    <h3>术 · 执行技巧</h3>
+    <ul>
+      <li><strong>明确边界：</strong>告诉 AI 能改什么、不能改什么（文件/范围/风格）</li>
+      <li><strong>Debug 模板：</strong>只给「预期 vs 实际 + 最小复现」，不给整段代码</li>
+      <li><strong>测试策略：</strong>AI 写测试，人来审断言</li>
+      <li><strong>会话管理：</strong>代码一多就切新会话，避免上下文污染</li>
+      <li><strong>重复尝试：</strong>多试几次，实在不行重开窗口</li>
+    </ul>
+
+    <h3>器 · 推荐工具链</h3>
+    <table>
+      <tr><th>类别</th><th>推荐</th></tr>
+      <tr><td>IDE</td><td>Cursor / VS Code (+ Local History) / Neovim (LazyVim)</td></tr>
+      <tr><td>AI 模型（第一梯队）</td><td>Claude Opus 4.5 · GPT 5.2 xhigh · Codex 5.1 max xhigh</td></tr>
+      <tr><td>CLI 工具</td><td>Claude Code · Codex CLI · Gemini CLI</td></tr>
+      <tr><td>免费模型入口</td><td>Kiro (免费 Claude Opus 4.5) · antigravity · AI Studio</td></tr>
+      <tr><td>上下文引擎</td><td>Augment · Windsurf</td></tr>
+      <tr><td>本地模型</td><td>Ollama</td></tr>
+      <tr><td>可视化</td><td>Mermaid Chart · NotebookLM</td></tr>
+      <tr><td>终端复用</td><td>tmux</td></tr>
+      <tr><td>数据库</td><td>DBeaver</td></tr>
+    </table>
+
+    <h3>元方法论：递归自优化系统</h3>
+    <p>该仓库最有价值的思想之一：</p>
+    <ol>
+      <li><strong>定义两个角色：</strong>α-提示词（生成器）和 Ω-提示词（优化器）</li>
+      <li><strong>创生：</strong>用 AI 生成 α 和 Ω 的 v1 版本</li>
+      <li><strong>自省与进化：</strong>用 Ω(v1) 优化 α(v1) → α(v2)</li>
+      <li><strong>创造：</strong>用 α(v2) 生成所有需要的目标提示词</li>
+      <li><strong>循环：</strong>将新生成的产物反馈回系统，启动持续进化</li>
+    </ol>
+    <div class="quote">
+      核心理念：通过持续的递归优化循环，系统在每次迭代中实现自我超越，无限逼近预设的预期状态。
+    </div>
+  </div>
+
+  <div class="step-divider">· · ·</div>
+
+  <!-- ============================================================ -->
+  <!-- STEP 4 -->
+  <!-- ============================================================ -->
+  <div class="section" id="step4">
+    <h2>⚡ 第4步 · 编程提示词 — 让 AI 高效产出</h2>
+    <p>
+      <strong>目标：</strong>学习并使用 <code>i18n/zh/prompts/coding_prompts/</code> 中的实战提示词。
+      这些是被反复打磨过的"可执行脚本"，直接复制给 AI 就能产出高质量代码。
+    </p>
+
+    <h3>典型编程提示词模板</h3>
+    <p>仓库中的 coding_prompts 通常遵循这个结构：</p>
+    <pre class="code-block"><code>## 角色定位
+你是一个 [领域] 专家，擅长 [具体能力]
+
+## 约束条件
+- 能改什么：[文件范围]
+- 不能改什么：[边界限制]
+- 风格要求：[编码规范]
+
+## 任务目标
+一句话描述要做什么
+
+## 非目标
+明确不要做的 N 件事
+
+## 输入
+- 现有代码/文件路径
+- 参考文档/接口定义
+
+## 输出要求
+- 文件结构
+- 代码质量门槛
+- 验收标准
+</code></pre>
+
+    <h3>实战示例：需求澄清提示词</h3>
+    <div class="quote">
+      📝 <strong>一句话目标：</strong>明确需求的输入、输出和边界<br>
+      <strong>非目标：</strong>不要开始写代码，不要讨论实现细节<br><br>
+      请帮我澄清这个需求：<br>
+      1. 输入是什么？从哪来？<br>
+      2. 输出是什么？给谁用？<br>
+      3. 成功标准是什么？<br>
+      4. 什么情况不属于这个需求范围？<br>
+      5. 有没有类似实现可以参考？
+    </div>
+
+    <h3>实战示例：实施计划提示词</h3>
+    <div class="quote">
+      📝 <strong>一句话目标：</strong>制定可执行的分步实施计划<br>
+      <strong>非目标：</strong>不要写代码，不要做技术选型假设<br><br>
+      基于以下需求，制定实施计划：<br>
+      1. 需要创建/修改哪些文件？<br>
+      2. 执行顺序是什么？依赖关系？<br>
+      3. 每一步的验收标准？<br>
+      4. 预计风险点在哪？<br>
+      5. 哪些可以并行？
+    </div>
+
+    <h3>从仓库直接获取</h3>
+    <p>这些只是示例。仓库里收录了数十个经过实战验证的编程提示词，覆盖：</p>
+    <ul>
+      <li>全栈项目生成</li>
+      <li>API 接口开发</li>
+      <li>Bug 修复（预期 vs 实际 + 最小复现）</li>
+      <li>代码重构与优化</li>
+      <li>测试用例生成</li>
+      <li>数据库 schema 设计</li>
+    </ul>
+  </div>
+
+  <div class="step-divider">· · ·</div>
+
+  <!-- ============================================================ -->
+  <!-- STEP 5 -->
+  <!-- ============================================================ -->
+  <div class="section" id="step5">
+    <h2>🔒 第5步 · 系统提示词 — 约束 AI 行为边界</h2>
+    <p>
+      <strong>目标：</strong>学习如何写高质量的 system prompt 来驯服 AI。
+      这是控制 AI 产出质量最关键的能力。
+    </p>
+
+    <h3>为什么系统提示词如此重要？</h3>
+    <p>
+      AI 模型默认是无边界状态的——它可以自由选择任何方向。
+      系统提示词的作用不是"让 AI 更聪明"，而是<strong>精确划定它的行为范围</strong>。
+      作者在仓库中收录了多个版本的 system prompts，对应不同的开发场景。
+    </p>
+
+    <h3>系统提示词的核心要素</h3>
+    <table>
+      <tr><th>要素</th><th>说明</th></tr>
+      <tr><td>角色定义</td><td>你是谁？擅长什么？局限在哪？</td></tr>
+      <tr><td>行为边界</td><td>能做什么、不能做什么（红线）</td></tr>
+      <tr><td>输出规范</td><td>格式、风格、语言、长度限制</td></tr>
+      <tr><td>推理指南</td><td>先分析再回答，还是直接给方案</td></tr>
+      <tr><td>知识范围</td><td>使用哪些上下文、依赖哪些资源</td></tr>
+      <tr><td>反馈机制</td><td>不确定时怎么做</td></tr>
+    </table>
+
+    <h3>系统提示词构建原则（来自仓库文档）</h3>
+    <ul>
+      <li><strong>明确性优先：</strong>模糊的指令→模糊的输出。每条指令应该只有一种理解方式</li>
+      <li><strong>结构化呈现：</strong>用层级、列表、代码块组织提示词，而不是长篇段落</li>
+      <li><strong>行为示例：</strong>给出好/坏输出的例子，让 AI 知道哪种是你想要的</li>
+      <li><strong>渐进约束：</strong>从宽松到严格逐步限制，不要一次性把所有规则压上</li>
+      <li><strong>可测试性：</strong>每条约束应该能通过输出验证是否被遵守</li>
+      <li><strong>持续优化：</strong>用 Ω-提示词来优化 α-提示词，递归改进</li>
+    </ul>
+
+    <h3>仓库中的系统提示词版本</h3>
+    <p>
+      <code>i18n/zh/prompts/system_prompts/</code> 包含多个版本的开发规范与思维框架，
+      每个版本对应不同的使用场景（独立开发、团队协作、复杂项目等）。
+      它们不仅是提示词，更是<strong>可复用的行为契约</strong>。
+    </p>
+  </div>
+
+  <div class="step-divider">· · ·</div>
+
+  <!-- ============================================================ -->
+  <!-- STEP 6 -->
+  <!-- ============================================================ -->
+  <div class="section" id="step6">
+    <h2>🧩 第6步 · Skills — 模块化技能的构建与复用</h2>
+    <p>
+      <strong>目标：</strong>理解模块化技能的设计哲学，学会把领域知识封装成 AI 可复用的 skill。
+      这与 Hermes Agent 的 skill 系统思路完全一致。
+    </p>
+
+    <h3>什么是 Skill？</h3>
+    <p>
+      Skill（技能）是一份结构化的 markdown 文档，包含特定领域的完整知识：
+      概念说明、API 文档、常用命令、典型工作流、陷阱与规避。
+      当 AI Agent 加载一个 skill 后，它在处理该领域问题时就拥有了专家级上下文。
+    </p>
+
+    <h3>仓库中的 Skill 示例</h3>
+    <div class="card-grid">
+      <div class="mini-card">
+        <div class="icon">💰</div>
+        <h4>CCXT</h4>
+        <p>加密货币交易库：交易所统一API、订单类型、市场数据</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">🤖</div>
+        <h4>Claude Code</h4>
+        <p>安装、配置、常用命令链、MCP集成</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">🗄️</div>
+        <h4>PostgreSQL</h4>
+        <p>查询优化、索引策略、事务隔离级别、备份恢复</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">📱</div>
+        <h4>Telegram Dev</h4>
+        <p>Bot API、Webhook设置、消息类型、支付集成</p>
+      </div>
+    </div>
+
+    <h3>Skill 的标准结构</h3>
+    <pre class="code-block"><code># 技能名称
+
+## 概述
+一句话说明这个技能解决什么问题
+
+## 前置条件
+- 需要的工具/环境
+- 依赖的版本要求
+
+## 核心概念
+- 领域术语解释
+- 关键架构图
+
+## 常用命令 / API
+- 高频操作的命令和用法
+- 带实际示例
+
+## 工作流
+- 典型场景的完整步骤
+- 从入门到完成
+
+## 陷阱与规避
+- 常见的坑和解决方法
+- 性能问题和安全注意事项
+
+## 相关技能 / 参考链接
+</code></pre>
+
+    <h3>如何为自己的项目构建 Skill</h3>
+    <ol>
+      <li><strong>识别领域：</strong>你的项目中哪些部分是重复出现的专业领域（数据库、API、部署等）</li>
+      <li><strong>收集知识：</strong>官方文档、常用命令、过往踩坑记录</li>
+      <li><strong>结构化输出：</strong>按上面的模板组织</li>
+      <li><strong>测试验证：</strong>让 AI 加载 skill 后完成一个典型任务，看是否够用</li>
+      <li><strong>持续维护：</strong>每次踩到新坑就补充到 skill 的陷阱部分</li>
+    </ol>
+
+    <h3>对你（Hermes 用户）的启示</h3>
+    <p>
+      这个仓库的 skill 系统与 Hermes Agent 的 skill 系统理念完全一致。
+      你正在用的 skills（hermes-agent、reasonix、coding-agent-bridge 等）
+      就是这种思路的实现。你可以进一步：
+    </p>
+    <ul>
+      <li>把 vibe-coding-cn 的 skill 结构借鉴到你的 C5-video-agents 项目</li>
+      <li>为你的 ComfyUI + TTS + ffmpeg 管线创建专属 skill</li>
+      <li>把它的 coding_prompts 适配成 Hermes skill</li>
+    </ul>
+  </div>
+
+  <div class="step-divider">· · ·</div>
+
+  <!-- ============================================================ -->
+  <!-- TAKEAWAY -->
+  <!-- ============================================================ -->
+  <div class="section">
+    <h2>🎯 总结：对你当前项目的价值</h2>
+
+    <p>
+      你的 P38「AI真人剧生产管线」项目（Hermes + AG2 + ComfyUI + TTS + ffmpeg）
+      与 vibe-coding-cn 有极高的互补性：
+    </p>
+
+    <table>
+      <tr><th>你的项目环节</th><th>可借鉴的 vibe-coding-cn 资产</th></tr>
+      <tr>
+        <td>Director/ScriptWriter/Critic Agent 角色</td>
+        <td><strong>system_prompts</strong> — 用系统提示词精确定义每个角色的行为边界</td>
+      </tr>
+      <tr>
+        <td>AG2 多智能体编排</td>
+        <td><strong>元方法论</strong> — 递归自优化循环的思路可以扩展到 Agent 协同</td>
+      </tr>
+      <tr>
+        <td>C5-video-agents 技能库</td>
+        <td><strong>skills/</strong> — 借鉴其 skill 结构来组织你的技能目录</td>
+      </tr>
+      <tr>
+        <td>Coding 阶段（Reasonix)</td>
+        <td><strong>coding_prompts</strong> — 拿来即用的编程提示词，配合 tmux 持久会话使用</td>
+      </tr>
+      <tr>
+        <td>项目文档</td>
+        <td><strong>文档即上下文</strong> — 让文档成为 AI 的第一上下文而不是事后补丁</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      内容整理自 <a href="https://github.com/2025Emma/vibe-coding-cn" target="_blank">2025Emma/vibe-coding-cn</a> （MIT 许可证）·
+      AI+X Elite Class 学习资料 · 课外拓展模块
+    </p>
+    <p style="margin-top:6px;">
+      <a href="https://github.com/2025Emma/vibe-coding-cn" target="_blank">⭐ 去 GitHub 给作者点 Star</a>
+    </p>
+  </footer>
+
+</div>
+
+</body>
+</html>
