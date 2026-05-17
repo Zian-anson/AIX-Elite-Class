@@ -591,7 +591,7 @@
     <h2>🧩 第6步 · Skills — 模块化技能的构建与复用</h2>
     <p>
       <strong>目标：</strong>理解模块化技能的设计哲学，学会把领域知识封装成 AI 可复用的 skill。
-      这与 Hermes Agent 的 skill 系统思路完全一致。
+      这与模块化 Skill 系统的设计思路完全一致。
     </p>
 
     <h3>什么是 Skill？</h3>
@@ -663,55 +663,152 @@
       <li><strong>持续维护：</strong>每次踩到新坑就补充到 skill 的陷阱部分</li>
     </ol>
 
-    <h3>对你（Hermes 用户）的启示</h3>
-    <p>
-      这个仓库的 skill 系统与 Hermes Agent 的 skill 系统理念完全一致。
-      你正在用的 skills（hermes-agent、reasonix、coding-agent-bridge 等）
-      就是这种思路的实现。你可以进一步：
-    </p>
+    <h3>如何应用到自己的项目</h3>
+    <p>将 Skill 体系与提示词工程结合，可以实现：</p>
     <ul>
-      <li>把 vibe-coding-cn 的 skill 结构借鉴到你的 C5-video-agents 项目</li>
-      <li>为你的 ComfyUI + TTS + ffmpeg 管线创建专属 skill</li>
-      <li>把它的 coding_prompts 适配成 Hermes skill</li>
+      <li><strong>多角色 Agent 协作：</strong>用系统提示词为每个 Agent（如导演/编剧/审核）精确定义行为边界</li>
+      <li><strong>模块化技能目录：</strong>按工具/领域拆分 skill，每次加载一个，避免上下文污染</li>
+      <li><strong>闭环提示词链：</strong>需求澄清 → 实施计划 → 分步实现 → 自测，配合 skill 上下文使用</li>
     </ul>
   </div>
 
   <div class="step-divider">· · ·</div>
 
   <!-- ============================================================ -->
-  <!-- TAKEAWAY -->
+  <!-- PROMPTS LIBRARY -->
   <!-- ============================================================ -->
   <div class="section">
-    <h2>🎯 总结：对你当前项目的价值</h2>
-
+    <h2>📦 提示词仓库 · 直接从仓库拿来用</h2>
     <p>
-      你的 P38「AI真人剧生产管线」项目（Hermes + AG2 + ComfyUI + TTS + ffmpeg）
-      与 vibe-coding-cn 有极高的互补性：
+      以下是 vibe-coding-cn 仓库中收录的部分<strong>实际提示词</strong>，可直接复制到你的 AI 对话中使用。
+      仓库完整收录了 <strong>coding_prompts（编程）</strong>、<strong>system_prompts（系统）</strong>、
+      <strong>user_prompts（用户）</strong>、<strong>meta_prompts（元提示词）</strong> 四个分类的几十个提示词文件。
     </p>
 
-    <table>
-      <tr><th>你的项目环节</th><th>可借鉴的 vibe-coding-cn 资产</th></tr>
-      <tr>
-        <td>Director/ScriptWriter/Critic Agent 角色</td>
-        <td><strong>system_prompts</strong> — 用系统提示词精确定义每个角色的行为边界</td>
-      </tr>
-      <tr>
-        <td>AG2 多智能体编排</td>
-        <td><strong>元方法论</strong> — 递归自优化循环的思路可以扩展到 Agent 协同</td>
-      </tr>
-      <tr>
-        <td>C5-video-agents 技能库</td>
-        <td><strong>skills/</strong> — 借鉴其 skill 结构来组织你的技能目录</td>
-      </tr>
-      <tr>
-        <td>Coding 阶段（Reasonix)</td>
-        <td><strong>coding_prompts</strong> — 拿来即用的编程提示词，配合 tmux 持久会话使用</td>
-      </tr>
-      <tr>
-        <td>项目文档</td>
-        <td><strong>文档即上下文</strong> — 让文档成为 AI 的第一上下文而不是事后补丁</td>
-      </tr>
-    </table>
+    <!-- Card 1: 编程提示词 -->
+    <div style="background:var(--surface);border:1px solid var(--accent);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.5rem;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
+        <span style="font-size:1.5rem;">⚡</span>
+        <div>
+          <h3 style="color:var(--accent2);margin:0;font-size:1.1rem;">编程提示词 · coding_prompts/</h3>
+          <p style="color:var(--muted);font-size:0.8rem;margin:2px 0 0;">直接让 AI 写代码的提示词，覆盖全栈开发全流程</p>
+        </div>
+        <span style="margin-left:auto;font-size:0.7rem;padding:2px 10px;border-radius:10px;background:rgba(244,114,182,.15);color:var(--accent2);">30+ 个</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div style="background:#111125;border:1px solid var(--border);border-radius:8px;padding:1rem;">
+          <div style="font-size:0.72em;color:var(--accent);font-weight:600;margin-bottom:6px;">📘 项目上下文文档生成</div>
+          <p style="font-size:0.8em;color:#cccce0;margin:0 0 8px;">将对话中的全部信息输出为结构化项目上下文文档，用于跨会话复用。</p>
+          <div style="font-size:0.7em;color:#666;"></div>
+        </div>
+        <div style="background:#111125;border:1px solid var(--border);border-radius:8px;padding:1rem;">
+          <div style="font-size:0.72em;color:var(--accent);font-weight:600;margin-bottom:6px;">🚀 智能需求理解与研发导航</div>
+          <p style="font-size:0.8em;color:#cccce0;margin:0 0 8px;">从表面需求到底层逻辑，从概念到系统方案，输出结构化可执行结果。</p>
+          <div style="font-size:0.7em;color:#666;"></div>
+        </div>
+        <div style="background:#111125;border:1px solid var(--border);border-radius:8px;padding:1rem;">
+          <div style="font-size:0.72em;color:var(--accent);font-weight:600;margin-bottom:6px;">📐 系统架构可视化 · Mermaid</div>
+          <p style="font-size:0.8em;color:#cccce0;margin:0 0 8px;">将文本描述转化为 Mermaid 架构图、序列图、流程图。</p>
+          <div style="font-size:0.7em;color:#666;"></div>
+        </div>
+        <div style="background:#111125;border:1px solid var(--border);border-radius:8px;padding:1rem;">
+          <div style="font-size:0.72em;color:var(--accent);font-weight:600;margin-bottom:6px;">🐛 执行纯净性检测</div>
+          <p style="font-size:0.8em;color:#cccce0;margin:0 0 8px;">检查 AI 输出是否包含多余代码、幻觉引用或不安全的操作。</p>
+          <div style="font-size:0.7em;color:#666;"></div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px;padding:10px 12px;background:#0a0a18;border:1px dashed var(--border);border-radius:6px;">
+        <p style="font-size:0.78em;color:var(--muted);margin:0;">
+          <strong style="color:var(--accent3);">📋 典型结构：</strong>角色定位 → 约束条件（能改/不能改） → 任务目标 → 非目标 → 输入 → 输出要求
+        </p>
+        <p style="font-size:0.78em;color:var(--muted);margin:4px 0 0;">
+          <strong style="color:var(--accent3);">💡 用法：</strong>复制整个提示词发给 AI（Claude / GPT / Codex），替换其中的具体需求即可。
+        </p>
+      </div>
+    </div>
+
+    <!-- Card 2: 系统提示词 -->
+    <div style="background:var(--surface);border:1px solid var(--accent);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.5rem;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
+        <span style="font-size:1.5rem;">🔒</span>
+        <div>
+          <h3 style="color:var(--accent3);margin:0;font-size:1.1rem;">系统提示词 · system_prompts/</h3>
+          <p style="color:var(--muted);font-size:0.8rem;margin:2px 0 0;">约束 AI 行为边界的系统级提示词，控制输出质量和风格</p>
+        </div>
+        <span style="margin-left:auto;font-size:0.7rem;padding:2px 10px;border-radius:10px;background:rgba(52,211,153,.15);color:var(--accent3);">10+ 个版本</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div style="background:#111125;border:1px solid var(--border);border-radius:8px;padding:1rem;">
+          <div style="font-size:0.72em;color:var(--accent);font-weight:600;margin-bottom:6px;">🎭 角色定义框架</div>
+          <p style="font-size:0.8em;color:#cccce0;margin:0 0 8px;">精确定义 AI 的角色、专业领域、语言风格和输出格式。</p>
+        </div>
+        <div style="background:#111125;border:1px solid var(--border);border-radius:8px;padding:1rem;">
+          <div style="font-size:0.72em;color:var(--accent);font-weight:600;margin-bottom:6px;">🧠 系统提示词构建原则</div>
+          <p style="font-size:0.8em;color:#cccce0;margin:0 0 8px;">明确性优先、结构化呈现、行为示例、渐进约束、可测试性。</p>
+        </div>
+        <div style="background:#111125;border:1px solid var(--border);border-radius:8px;padding:1rem;">
+          <div style="font-size:0.72em;color:var(--accent);font-weight:600;margin-bottom:6px;">📝 AI 生成代码文档规范</div>
+          <p style="font-size:0.8em;color:#cccce0;margin:0 0 8px;">文件头注释规范、变量命名、函数签名等统一约定。</p>
+        </div>
+        <div style="background:#111125;border:1px solid var(--border);border-radius:8px;padding:1rem;">
+          <div style="font-size:0.72em;color:var(--accent);font-weight:600;margin-bottom:6px;">🔄 Claude 记忆与持久化</div>
+          <p style="font-size:0.8em;color:#cccce0;margin:0 0 8px;">跨会话上下文保持、提示词约束与记忆规范。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: 用户提示词 -->
+    <div style="background:var(--surface);border:1px solid var(--accent);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.5rem;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
+        <span style="font-size:1.5rem;">✍️</span>
+        <div>
+          <h3 style="color:var(--accent2);margin:0;font-size:1.1rem;">用户 & 元提示词 · user_prompts / meta_prompts</h3>
+          <p style="color:var(--muted);font-size:0.8rem;margin:2px 0 0;">日常高频使用的模板 + 用 AI 生成提示词的提示词</p>
+        </div>
+        <span style="margin-left:auto;font-size:0.7rem;padding:2px 10px;border-radius:10px;background:rgba(124,92,252,.15);color:var(--accent);">15+ 个</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div style="background:#111125;border:1px solid var(--border);border-radius:8px;padding:1rem;">
+          <div style="font-size:0.72em;color:var(--accent);font-weight:600;margin-bottom:6px;">🎨 ASCII 图生成</div>
+          <p style="font-size:0.8em;color:#cccce0;margin:0 0 8px;">将概念/架构转化为 ASCII 示意图，适合嵌入 Markdown 文档。</p>
+        </div>
+        <div style="background:#111125;border:1px solid var(--border);border-radius:8px;padding:1rem;">
+          <div style="font-size:0.72em;color:var(--accent);font-weight:600;margin-bottom:6px;">🔄 数据管道处理</div>
+          <p style="font-size:0.8em;color:#cccce0;margin:0 0 8px;">ETL 流程、数据清洗、格式转换的标准化提示词模板。</p>
+        </div>
+        <div style="background:#111125;border:1px solid var(--border);border-radius:8px;padding:1rem;">
+          <div style="font-size:0.72em;color:var(--accent);font-weight:600;margin-bottom:6px;">🧬 元提示词 · 提示词的提示词</div>
+          <p style="font-size:0.8em;color:#cccce0;margin:0 0 8px;">用 AI 生成/优化其他提示词。α-提示词（生成器）+ Ω-提示词（优化器）递归循环。</p>
+        </div>
+        <div style="background:#111125;border:1px solid var(--border);border-radius:8px;padding:1rem;">
+          <div style="font-size:0.72em;color:var(--accent);font-weight:600;margin-bottom:6px;">📏 标准化流程模板</div>
+          <p style="font-size:0.8em;color:#cccce0;margin:0 0 8px;">需求分析 → 方案设计 → 代码实现 → 测试验证的标准流程。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4: 如何获取 -->
+    <div style="background:linear-gradient(135deg,var(--acc-soft),rgba(52,211,153,.05));border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem 1.5rem;">
+      <h3 style="color:var(--accent3);font-size:1rem;margin-bottom:8px;">🔗 如何获取完整提示词库</h3>
+      <p style="font-size:0.85em;color:#cccce0;margin-bottom:8px;">
+        此处的提示词仅为示例。完整的提示词库（含数十个高质量提示词文件）在 GitHub 仓库中：
+      </p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="https://github.com/2025Emma/vibe-coding-cn/tree/main/i18n/zh/prompts" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:var(--accent);color:#fff;border-radius:6px;text-decoration:none;font-size:0.85rem;">
+          📂 浏览提示词目录
+        </a>
+        <a href="https://github.com/2025Emma/vibe-coding-cn" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1px solid var(--border);color:var(--text);border-radius:6px;text-decoration:none;font-size:0.85rem;">
+          ⭐ 给仓库点 Star
+        </a>
+        <a href="https://github.com/2025Emma/vibe-coding-cn/tree/main/i18n/zh/prompts/coding_prompts" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1px solid var(--border);color:var(--accent2);border-radius:6px;text-decoration:none;font-size:0.85rem;">
+          ⚡ 直接看编程提示词
+        </a>
+      </div>
+    </div>
   </div>
 
   <!-- Footer -->
